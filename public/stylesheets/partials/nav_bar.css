@@ -1,0 +1,36 @@
+.container-A input#search {
+   width: 360px;
+   height: 30px;
+   margin-top: 10px;
+   background: #E5E7E9;
+   border: none;
+   font-size: 10pt;
+   color: #BA4A00;
+   font-style: normal;
+   float: left;
+
+}
+
+.position-container {
+   margin-left: 15px;
+}
+
+.container-A input[placeholder] {
+   font-style: italic;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
+.search-button {
+   /*display: block;*/
+   padding: 6.5px 8px;
+   margin-top: 10px;
+   background: #999999;
+   border-style: none;
+   font-size: 12px;
+   font-weight: bold;
+}
+
+.search-button:hover {
+   background: #BA4A00;
+}

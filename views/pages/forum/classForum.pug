@@ -1,0 +1,128 @@
+html
+   head
+      title= classObj.name
+      link(href="/stylesheets/test/grading.css", rel='stylesheet', type='text/css')
+      link(href="/stylesheets/forum/forumStyle.css", rel='stylesheet', type='text/css')
+      include ./../../partials/header.pug
+   body
+      - if (loggedIn){
+           include ./../../partials/navBarDynamic.pug
+      - }else{
+           include ./../../partials/navBarStatic.pug
+      - }
+
+      .forumContainer
+         .forumTitleContainer
+            .forumTitle
+               a.forumClassName(href="/class/" + classObj.department + "-" + classObj.courseNum)
+                  =classObj.department + " " + classObj.courseNum
+               span#classForumHeader Class Forum
+            .buttonContainer
+               a.ui.button#jumpBackClassButton(href="/class/" + classObj.department + "-" + classObj.courseNum)
+                  span.jumpBackClassButtonText GO TO CLASS PAGE
+
+         .forum#classForum
+            ul.list-group.entireForumBody
+               a.list-group-item.forumPostHeader(href="#dropdownArea" data-toggle="collapse")
+                  p#postNewReview Post a new topic...
+                  i.fa.fa-caret-down
+               .collapse#dropdownArea
+                  .outsideForm
+                     form(id="newForumPost" action='/forum/'+classObj.department + "-" + classObj.courseNum + '/postForum' method='post')
+                        fieldset.form-group
+                           .col-xs-8#removeRightPadding
+                              input.form-control.form-control-lg(name="postTitle" type="text" form="newForumPost" placeholder="Topic Title..." required)
+                           .col-xs-4
+                              select.form-control.form-control-lg(name="typeOfPost" form="newForumPost" required)
+                                 option(value="") Post Type
+                                 option(value="question") Question
+                                 option(value="discussion") Discussion
+                                 option(value="important") Important
+
+                        fieldset.form-group
+                           .col-xs-12
+                              textarea.form-control(name="content" form="newForumPost" placeholder="Discuss, explain, or ask about your topic here..." required)
+
+                        fieldset.form-group
+                           button.btn.btn-primary(type="submit" form="newForumPost") Submit
+                           input#anonymousPost(name="anon" form="newForumPost" type="checkbox" tabindex="0")
+                           label#checkboxAnon(for="anonymousPost") Be Anonymous?
+            .postBottom
+               .postTextContainer
+                  .postText
+                     = postInfo.mainText
+
+            .replyTo#hidden
+               form#replyFormArea(action='/forum/'+classObj.department + "-" + classObj.courseNum + '/' + postInfo.id + '/reply' method='post')
+                  textarea.form-control#replyText(name="comment" form="replyFormArea" placeholder="Leave a thoughtful reply here..." required)
+                  button.btn.btn-primary#replySubmit(type="submit" form="replyFormArea") Submit Your Reply
+                  p#anonTextWarning FYI: You can not reply anonymously!
+
+            .postButtons
+               a.report#main(href="#") Report
+               - if (loggedIn) {
+                  a.reply#main(href="#" onclick="document.getElementsByClassName('replyTo')[0].id = 'show';") Reply
+               - } else {
+                  p.reply#main Log In to Reply
+               - }
+
+               each post in forumPosts
+                  li.list-group-item.forumPostBody
+                     .title
+                        .right
+                           .header= post.timeAgo
+                        .left
+                           img#icon(src="/misc/forum/" + post.type + ".png")
+                        a.header(href="/forum/" + classObj.department + '-' + classObj.courseNum + "/" + post._id)= post.title
+                        .header= "by " + post.author
+
+      .extraContainer
+         .sideBarTitleContainer
+            #sidebarTitle Resources
+         br
+         .infoContainer
+            #inDevMessage
+               #comingSoon Coming Soon
+            .blurredContainer
+               div.sectionHeader#classes List of Professors
+               div.table_container
+                  table.table_style
+                     tbody
+                        each prof in profList
+                           tr
+                              td.professor_pic
+                              td.proffesor_info
+                                 //a(href="/professor/" + prof._id).professor_name#class= prof.name
+                                 br
+                                 span.professor_depart= "Computer Engineering Department"
+                              td.rating_column
+               div.sectionHeader#classes List of Professors
+               div.table_container
+                  table.table_style
+                     tbody
+                        each prof in profList
+                           tr
+                              td.professor_pic
+                              td.proffesor_info
+                                 //a(href="/professor/" + prof._id).professor_name#class= prof.name
+                                 br
+                                 span.professor_depart= "Computer Engineering Department"
+                              td.rating_column
+               div.sectionHeader#classes List of Professors
+               div.table_container
+                  table.table_style
+                     tbody
+                        each prof in profList
+                           tr
+                              td.professor_pic
+                              td.proffesor_info
+                                 //a(href="/professor/" + prof._id).professor_name#class= prof.name
+                                 br
+                                 span.professor_depart= "Computer Engineering Department"
+                              td.rating_column
+
+         //.imgContainer
+            include ./../../partials/ads.pug
+
+   footer
+      include ./../../partials/footer.pug

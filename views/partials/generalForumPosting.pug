@@ -1,0 +1,15 @@
+html(lang="en")
+   ul.list-group
+      a.list-group-item(href="#dropdownArea" data-toggle="collapse")
+         p Temporary General Post Area
+         i.fa.fa-caret-down
+      .collapse#dropdownArea
+         .outsideForm
+            form(id="generalPost" action='/general-forum/588160f309dd9b343aaf3fad/post' method='post')
+               
+               fieldset.form-group
+                  .col-xs-12
+                     textarea.form-control(name="content" form="generalPost" placeholder="Blah blah bitch..." required)
+
+               fieldset.form-group
+                  button.btn.btn-primary(type="submit" form="generalPost") Submit

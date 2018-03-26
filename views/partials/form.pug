@@ -1,0 +1,120 @@
+
+style.
+   #popup {
+       position:absolute;
+       margin:0 auto;
+       top: 40%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       box-shadow: 0px 0px 50px 2px #000;
+    }
+
+
+#popup.popup.panel.panel-primary
+   // and here comes the image
+   form.ui.form.error
+         .two.fields
+           .field.error
+                form.ui.form
+                  .field
+                    label Major
+                    select.ui.dropdown(name='dropdown')
+                      option(value='') Select
+                      option(value='male') Software Engineering
+                      option(value='female') Computer Engineering
+                    label Year
+                    select.ui.dropdown(name='dropdown')
+                      option(value='') Select
+                      option(value='male') Freshmen
+                      option(value='female') Sophomore
+                      option(value='male') Junior
+                      option(value='female') Senior
+                      option(value='male') Super Senior
+
+
+
+   .panel-footer
+     button#close.btn.btn-lg.btn-primary Submit
+
+
+
+
+
+
+script.
+   $(document).ready(function () {
+    //select the POPUP FRAME and show it
+   $("#popup").hide().fadeIn(1000);
+
+    //close the POPUP if the button with id="close" is clicked
+   $("#close").on("click", function (e) {
+      e.preventDefault();
+      $("#popup").fadeOut(1000);
+    });
+   });
+// form.ui.form.error
+      .two.fields
+        .field.error
+             form.ui.form
+               .field
+                 label Major
+                 select.ui.dropdown(name='dropdown')
+                   option(value='') Select
+                   option(value='male') Software Engineering
+                   option(value='female') Computer Engineering
+               .ui.submit.button Submit
+               .ui.error.message
+         .two.fields
+           .field.error
+             label Number
+             input(name='number', type='text', value='+200')
+         .two.fields
+           .field.error
+             label URL
+             input(name='url', type='text', value='ww.fakeurl.com')
+           .field.error
+             label RegEx
+             input(name='regex', type='text', value='joe')
+         .ui.submit.button Submit
+         .ui.error.message
+           ul.list
+             li Please enter a valid e-mail
+             li Please enter a valid number
+             li Please enter a url
+             li Please enter a 4-16 letter username
+
+
+ script
+   | $('.field.example form')
+   |  .form({
+   |    on: 'blur',
+   |    fields: {
+   |      empty: {
+   |        identifier  : 'empty',
+   |        rules: [
+   |          {
+   |            type   : 'empty',
+   |            prompt : 'Please enter a value'
+   |          }
+   |        ]
+   |      },
+   |      dropdown: {
+   |        identifier  : 'dropdown',
+   |        rules: [
+   |          {
+   |            type   : 'empty',
+   |            prompt : 'Please select a dropdown value'
+   |          }
+   |        ]
+   |      },
+   |      checkbox: {
+   |        identifier  : 'checkbox',
+   |        rules: [
+   |          {
+   |            type   : 'checked',
+   |            prompt : 'Please check the checkbox'
+   |          }
+   |        ]
+   |      }
+   |    }
+   | });

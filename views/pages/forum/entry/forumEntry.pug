@@ -1,0 +1,80 @@
+html
+   // classObj and postInfo are passed in.
+   head
+      title= classObj.department + " " + classObj.courseNum + " - " + postInfo.title
+      include ./../../../partials/header.pug
+      link(href="/stylesheets/forum/entry/entryStyle.css", rel='stylesheet', type='text/css')
+   body
+      - if (loggedIn) {
+         include ./../../../partials/navBarDynamic.pug
+      - } else {
+         include ./../../../partials/navBarStatic.pug
+      - }
+
+      .postContainer(style="overflow-y: scroll;")
+         .titleContainer
+            .buttonContainer
+               a.ui.button#backButton(href="/forum/" + classObj.department + "-" + classObj.courseNum)
+                  span#backText <
+            .classTitle
+               = classObj.department + " " + classObj.courseNum + " - Forum Post"
+         .post
+            .postTop
+               .postInformation
+                  .postTitle
+                     = postInfo.title
+                  .postAuthor
+                     = " by " + postInfo.author
+               .reviewTagVoteContainer
+               - if (loggedIn) {
+                  div.upvoteContainer
+                     span.voteNotification#upNotify
+                        | +1
+                     form.upvoteForm(action='/forum/' + classObj.department + "-" + classObj.courseNum + '/' + postInfo._id + "/upvoted" method="post")
+                        - if (user.upvotedForumPosts.indexOf(postInfo._id) != -1) {
+                              span.glyphicon.glyphicon-triangle-top#alreadyVoted
+                        - } else {
+                              span.glyphicon.glyphicon-triangle-top#upvote(onclick="javascript:this.parentNode.submit();")
+                        - }
+                  #reviewTag= postInfo.upvotes - postInfo.downvotes
+                  div.downvoteContainer
+                     form.downvoteForm(action='/forum/' + classObj.department + "-" + classObj.courseNum + '/' + postInfo._id + "/downvoted" method="post")
+                        - if (user.downvotedForumPosts.indexOf(postInfo._id) != -1) {
+                              span.glyphicon.glyphicon-triangle-bottom#alreadyVoted
+                        - } else {
+                              span.glyphicon.glyphicon-triangle-bottom#downvote(onclick="javascript:this.parentNode.submit();")
+                        - }
+                     span.voteNotification#downNotify
+                        | -1
+               - } else {
+                  #reviewTag.notLoggedInTag= postInfo.upvotes - postInfo.downvotes
+               - }
+
+            .postBottom
+               .postTextContainer
+                  .postText
+                     = postInfo.mainText
+
+            .replyTo#hidden
+               form#replyFormArea(action='/forum/'+classObj.department + "-" + classObj.courseNum + '/' + postInfo.id + '/reply' method='post')
+                  textarea.form-control#replyText(name="comment" form="replyFormArea" placeholder="Leave a thoughtful reply here..." required)
+                  button.btn.btn-primary#replySubmit(type="submit" form="replyFormArea") Submit Your Reply
+                  p#anonTextWarning FYI: You can not reply anonymously!
+
+            .postButtons
+               a.report#main(href="#") Report
+               - if (loggedIn) {
+                  a.reply#main(href="#" onclick="document.getElementsByClassName('replyTo')[0].id = 'show';") Reply
+               - } else {
+                  p.reply#main Log In to Reply
+               - }
+         each comment in commentList
+            .commentBox
+               .actualComment
+                  p.comment= comment.comment
+               p.commentDetails= "By " + comment.author + ",   " + comment.timeAgo
+         p(style="width:20px;")
+      .extraContainer
+
+   footer
+      include ./../../../partials/footer.pug

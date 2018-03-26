@@ -1,0 +1,64 @@
+html
+   head
+      title Professors
+      include ./../../partials/header.pug
+      link(href="/stylesheets/professors/professorList.css", rel='stylesheet', type='text/css')
+      script(type='text/javascript', src='/scripts/listSort/mergeSort.js')
+      script(type='text/javascript', src='/scripts/listSort/listSort2.js')
+   body
+      - if (loggedIn){
+           include ./../../partials/navBarDynamic.pug
+      - }else{
+           include ./../../partials/navBarStatic.pug
+      - }
+      section.titleContainer
+         div.title
+            | List of Professors:
+         div.buttonWrapper.text-center
+            span#sortHeader sort by:
+            div.btn-group.btn-group-xs(role='group', aria-label='Basic example')
+               button.btn.btn-secondary#sortLastName(type='button') Last Name
+               button.btn.btn-secondary#sortRating(type='button') Rating
+               button.btn.btn-secondary#sortDepartment(type='button') Department
+      div.container#body
+         div(align='center')
+            div.table_container
+               table.table_style
+                  tbody#listProfessorContents
+                     tr.columHeaders
+                        th.searchHeader
+                           | Professor
+                        th.detailColumnHeader
+                           | Average Rating
+                     each professor in profList
+                        - if (professor.name.slice(0, 5) != "STAFF"){
+                           tr
+                              //td
+
+                              //td.professor_pic
+
+                              td.searchColumn
+                                 ui.relaxed.divided.list
+                                   .item
+                                     .content
+                                        a(href="/professor/" + professor._id).professor_name= professor.name
+                                 - if (professor.department != ""){
+                                    .professor_depart= "Department of " + professor.department
+                                 - } else {
+                                    .professor_depart= "Department Unknown"
+                                 - }
+                                 //span.professor_depart= professor.college
+                              - if (professor.numRatings + professor.numPolyRatings != 0){
+                                 td.detailColumn
+                                    = professor.actualRating
+                              - } else {
+                                 td.detailColumn
+                                    = professor.numPolyRatings
+                              - }
+                                 //span.professorRating= professor.rating
+                        - }
+
+
+
+   footer
+      include ./../../partials/footer.pug

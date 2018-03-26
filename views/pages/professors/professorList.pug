@@ -1,0 +1,39 @@
+html
+   head
+      title Classes
+      include ./../../partials/header.pug
+      link(href="/stylesheets/professors/professorList2.css", rel='stylesheet', type='text/css')
+      script(type='text/javascript', src='/scripts/class/classListInteract.js')
+      script(type='text/javascript', src='/scripts/listSort/listSort.js')
+   body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+
+      section.titleContainer
+         div.title Professor List
+
+      section.listContainer
+         div.departmentTitle Departments
+
+         div.departmentsContainer
+
+      section.sidebarContainer
+         div.enrolledClassesContainer
+
+            div.enrolledClassesTitle Enrolled Classes
+
+            div.enrolledClasses
+
+         div.scheduleStatsContainer
+
+
+
+
+
+
+
+    footer
+       include ./../../partials/footer.pug

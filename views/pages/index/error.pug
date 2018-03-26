@@ -1,0 +1,39 @@
+html(lang='en')
+  head
+    title About Us
+    include ./../../partials/header.pug
+
+    //link(href='/stylesheets/index/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/index/business-casual.css', rel='stylesheet')
+    //link(href='http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic', rel='stylesheet', type='text/css')
+
+  body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+
+    .container
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              | ERROR
+            hr
+
+            img.img-responsive.img-border-left(src='../misc/team.jpg', alt='' style="width:300px; height:300px; margin: auto; align: middle")
+
+            br
+            p#text.
+                Sqzee.com is currently only supported with Facebook. Sorry for any inconvenienced caused.
+            - for(i=0;i<2;i++) {
+            br
+            -}
+
+
+
+
+  footer
+    include ./../../partials/footer.pug

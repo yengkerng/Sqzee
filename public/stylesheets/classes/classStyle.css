@@ -1,0 +1,1246 @@
+@media only screen and (max-width: 1000px) {
+   div.col-xs-6#removeRightPadding {
+      width: 100%;
+      padding-right: 15px;
+   }
+
+   div.col-xs-6#hoursField {
+      width: 100%;
+      margin-top: 7px;
+   }
+}
+
+@media only screen and (min-width: 1350px) {
+   div.quickRatingHeader {
+      font-size: 20px;
+   }
+
+   span#rating {
+      font-size: 22px;
+   }
+
+   span#placeholder {
+      font-size: 20px;
+   }
+}
+
+@media only screen and (max-width: 980px) {
+
+   #flex {
+    display: flex;
+   }
+
+   #a {
+     order: 1;
+   }
+
+   #b {
+     order: 2;
+   }
+
+   a.ui.button#enroll {
+      height: 60px;
+      margin: auto;
+   }
+
+   a.ui.button#forum {
+      margin: auto;
+      display: block;
+      margin-top: 3px;
+   }
+
+   section.headContainer {
+      padding-bottom: 0px;
+      margin: 0px;
+   }
+
+   div.classNameContainer {
+      width: 100%;
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-top: 0px;
+      align-items: center;
+   }
+
+   div.buttonContainer {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+   }
+
+   div.classRatingContainer {
+      width: 100%;
+      padding-left: 0px;
+      text-align: center;
+      position: relative;
+      display: block;
+      vertical-align: none;
+      padding-top: 10px;
+      height: auto;
+   }
+
+   div.quickRatingHeader {
+      font-size: 26px;
+   }
+
+   span#rating {
+      font-size: 28px;
+   }
+
+   span#placeholder {
+      font-size: 26px;
+   }
+
+   div#info{
+      padding: 0px 0px 0px 20px;
+   }
+
+   span#courseInfo{
+      font-size: 28px;
+      display: block;
+      text-align: center;
+   }
+
+   span#descriptiveName{
+      font-size: 24px;
+      display: block;
+      text-align: center;
+   }
+
+   section.reviewSection{
+      display: block;
+      width: 100%;
+      vertical-align: top;
+      margin-bottom: 20px;
+      min-height: 0px;
+   }
+
+   div.forum#classReviewForum {
+      height: auto;
+   }
+
+   div.classSideBar {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 0px;
+
+      vertical-align: top;
+      padding: 10px 0% 0px 0%;
+      margin-bottom: 20px;
+
+      border-left: 0px solid rgba(34, 36, 38, 0.15);
+      border-top: 1px solid rgba(34,36,38,0.15);
+   }
+
+   div.facebookProfilesContainer {
+      padding-left: 30px;
+      padding-right: 30px;
+   }
+
+   div.faqContainer {
+      border-top: 1px solid rgba(34,36,38,0.15);
+   }
+
+   div#leftSide {
+      text-align: center;
+   }
+
+   div.content#reviewTextContainer {
+      width: 80%;
+   }
+
+   div#reviewTag {
+      font-size: 11px;
+   }
+}
+
+.postAuthorPic {
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+}
+
+.resize {
+  max-width:100%;
+  max-height:100%;
+  border-radius: 50%;
+
+  vertical-align: middle;
+}
+
+.titleForForum {
+   font-family: 'Trebuchet MS';
+   font-size: 15px;
+   margin-left: 5px;
+   color: black;
+}
+
+.nameForForum {
+   font-family: 'Trebuchet MS';
+   font-size: 12px;
+   margin-left: 5px;
+   color: black;
+   display: inline-block;
+}
+
+.headContainer {
+   background-image: url("./../../misc/background/gradient8.jpg");
+   background-size: cover;
+   background-position: right;
+   width: 100%;
+   overflow: hidden;
+   position: relative;
+}
+
+.classNameContainer {
+   font-family: "Trebuchet MS";
+   color: white;
+   display: inline-block;
+   vertical-align: top;
+   width: 70%;
+
+}
+
+.classRatingContainer {
+   font-family: "Trebuchet MS";
+   /*background-image: url("./../../misc/background/gradient1.png");
+   background-size: cover;
+   background-position: right;*/
+   width: 30%;
+   height: 100%;
+   position: absolute;
+   display: inline-block;
+   vertical-align: bottom;
+   text-align: left;
+   padding-bottom: 20px;
+   padding-top: 35px;
+   padding-left: 30px;
+   padding-right: 10px;
+}
+
+
+.forum#classReviewForum {
+   background-color: white;
+   width:100%;
+   /*height:90%;
+   margin:auto;*/
+
+   border-radius: 5px;
+   /*z-index: 0;*/
+   overflow-y: scroll;
+}
+
+.forum#classReviewForum::-webkit-scrollbar {
+   display: none;
+}
+
+.list-group-item.classReviewHeader {
+   background-color: white;
+}
+
+.list-group-item.classReviewPost {
+   background-color: white;
+}
+
+.description.classReviewContent {
+   background-color: white;
+   word-wrap: break-word;
+}
+
+.extraContainer {
+   width: 40%;
+   height: 100%;
+   float: right;
+   overflow: scroll;
+}
+
+#courseInfo {
+   font-family: "Trebuchet MS";
+   color: white;
+   font-size: 4.2vw;
+   display: inline-block;
+   padding-right: 15px;
+}
+
+#descriptiveName {
+   font-family: "Trebuchet MS";
+   color: white;
+   font-size: 2.5vw;
+   /* WTF DO WE DO HERE ^^^ */
+   display: inline-block;
+}
+
+.sectionHeader {
+   font-size: 18px;
+   font-family: "Trebuchet MS";
+   font-weight: bold;
+   padding: 0px 0px 10px 0px;
+   color: black;
+   /*background-color: #D5D5D5;*/
+   text-align: center;
+
+}
+
+.sectionBody {
+   font-family: "Trebuchet MS";
+   text-align: left;
+   padding-left: 30px;
+
+}
+
+.ui.button#forum {
+   border-radius: 5px;
+   text-align: center;
+   font-family: "Trebuchet MS";
+   text-decoration: none;
+   display: inline-block;
+
+   background: #87E293;
+   width: 300px;
+   height: 60px;
+
+   margin-left: 15px;
+   margin-right: 0px;
+}
+
+.ui.button#forum:hover {
+   background: #b7edbe;
+}
+
+.ui.button#enroll {
+   border-radius: 5px;
+   text-align: center;
+   font-family: "Trebuchet MS";
+   text-decoration: none;
+   display: inline-block;
+
+
+   background: #44748a;
+   /*background-image: url("./../../misc/background/gradient4.png");
+   background-size: cover;
+   background-position: top;*/
+   width: 300px;
+   height: 60px;
+}
+
+.ui.button#enroll:hover {
+   background:#7fa5ad;
+}
+
+.ui.button#enrolled {
+   border-radius: 5px;
+   text-align: center;
+   font-family: "Trebuchet MS";
+   text-decoration: none;
+   display: inline-block;
+
+   background: #44748a;
+   width: 300px;
+   height: 60px;
+}
+
+.ui.button#notLoggedEnroll {
+   border-radius: 5px;
+   text-align: center;
+   font-family: "Trebuchet MS";
+   text-decoration: none;
+   display: inline-block;
+
+   background: #44748a;
+   /*background-image: url("./../../misc/background/gradient4.jpg");
+   background-size: cover;
+   background-position: bottom;*/
+   width: 300px;
+   height: 60px;
+
+   cursor: pointer;
+}
+
+.ui.button#notLoggedEnroll:hover {
+   background: #7fa5ad;
+}
+
+
+#enrollText {
+   color: white;
+   font-family: "Trebuchet MS";
+   font-size: 14px;
+
+   display: flex;
+   flex-direction: column;
+   vertical-align: middle;
+   justify-content: center;
+
+   height: 100%;
+}
+
+#dropText {
+   color: white;
+   font-family: "Trebuchet MS";
+   font-size: 14px;
+
+   display: flex;
+   flex-direction: column;
+   vertical-align: middle;
+   justify-content: center;
+
+   height: 100%;
+}
+
+#forumText {
+   color: black;
+   font-family: "Trebuchet MS";
+   font-size: 14px;
+
+   display: flex;
+   flex-direction: column;
+   vertical-align: middle;
+   justify-content: center;
+
+   height: 100%;
+}
+
+.headerStyle {
+   text-align: left;
+   padding: 5px 20px 5px 40px;
+}
+
+
+.buttonContainer {
+   display: inline-block;
+   margin-top: -25px;
+   margin-bottom: 10px;
+   padding: 15px 15px 20px 40px;
+   width: 100%;
+
+}
+
+#leftSide {
+   display: inline-block;
+   vertical-align: top;
+   /*width: 55%;*/
+   text-align: left;
+}
+
+#rightSide {
+   display: inline;
+   vertical-align: top;
+   /*width: 45%;*/
+
+   text-align: left;
+}
+
+.quickRatingHeader {
+   display: inline-block;
+   margin-right: 80px;
+   margin-left: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   font-weight: bold;
+   font-size: 1.6vw;
+   color: #373737;
+}
+
+#rating {
+   color: #feab76;
+   font-weight: normal;
+   font-size: 1.9w;
+   padding-left: 10px;
+   padding-right: 5px;
+}
+
+#placeholder {
+   color: #FE731B;
+   font-weight: normal;
+   font-size: 1.6vw;
+}
+
+.reviewSection{
+   display: inline-block;
+   width: 70%;
+   vertical-align: top;
+   /*padding-top: 10px;*/
+   margin-bottom: 20px;
+   min-height: 600px;
+
+}
+
+.descriptionContainer {
+   font-family: "Trebuchet MS";
+   background-color: white;
+   display: inline-block;
+   width: 100%;
+   height: auto;
+   vertical-align: top;
+   padding-right: 10px;
+   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+   padding-top: 10px;
+}
+
+.professorContainerForReviews {
+   font-family: "Trebuchet MS";
+   background-color: white;
+   display: inline-block;
+   width: 100%;
+   height: auto;
+   vertical-align: top;
+   text-align: center;
+   /*padding-right: 10px;*/
+   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+   padding-top: 15px;
+}
+
+.classSideBar {
+   display: inline-block;
+   width: 30%;
+   height: 100%;
+   min-height: 600px;
+   vertical-align: top;
+   padding-right: 10px;
+   border-left: 1px solid rgba(34, 36, 38, 0.15);
+   overflow-y: scroll;
+}
+
+.linksForReviews {
+   text-align: center;
+   /*height: 30px;*/
+}
+
+
+.professorLink {
+   color: #ffc34d;
+   font-weight: normal;
+   font-size: 16px;
+   padding-right: 5px;
+   width: auto;
+   text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+   padding-bottom: 5px;
+   padding-top: 5px;
+
+}
+
+#reviewLink {
+   color: #ffc34d;
+}
+
+#reviewLink:hover {
+   color: #ffc34d;
+}
+
+#reviewLinkHeader {
+   color: #FE731B;
+   font-weight: bolder;
+   font-size: 16px;
+   float: left;
+   padding-left: 30px;
+}
+
+.ratingContainer {
+   position: relative;
+   color: #FE731B;
+   font-weight: bolder;
+   font-size: 20px;
+   /*text-align: right*/
+   float: right;
+   margin-right: 10%;
+   bottom: 25px;
+   font-family: "Trebuchet MS";
+   font-weight: normal;
+   font-size: 15px;
+   position: relative;
+   color: black;
+   font-weight: ;
+   /*text-align: right*/
+   float: right;
+   margin-right: 10%;
+   bottom: 15px;
+}
+
+.reviewLinkTable td:not(:last-child) {
+   border-right: 1px solid rgba(34,36,38,0.15);
+}
+
+.professorReviewSection {
+   font-size: 20px;
+   width: 100%;
+}
+
+.departmentContainer {
+   position: relative;
+   font-size: 13px;
+   top: 10%;
+   text-align: left;
+   padding-left: 30px;
+   /*text-align: center;*/
+   /*text-justify: inter-word;*/
+   color: #000;
+}
+
+.professorReviewSectionName {
+   font-weight: bolder;
+   font-size: 20px;
+   color: #FE731B;
+   text-align: center;
+   /*background-color: #f5f5f5;*/
+   background-color: #FFF;
+   height: 60px;
+   border-bottom: 1px solid #D5D5D5;
+}
+
+.professorReviewSectionName:hover {
+   background-color: #f5f5f5;
+}
+
+.professorReviewSectionName > a {
+   position: relative;
+   top: 10px;
+}
+
+.title {
+   margin-bottom: 5px;;
+}
+
+.postContent, .postId {
+   display: none;
+}
+
+.replyTo, .replyToClone {
+   display: none;
+}
+
+#replySubmit {
+   width: 50%;
+   display:block;
+   margin: 0 auto;
+}
+
+.forumPostBody {
+   position: relative;
+   width: 50px;
+   width: 100%;
+}
+
+.forumPostHeader {
+   height: 50px;
+   text-align: center;
+}
+
+.forumPostHeader2 {
+   height: 50px;
+   text-align: center;
+}
+
+
+.CalculatorPostHeader {
+   height: 50px;
+   text-align: center;
+}
+
+.individualPostContainer {
+  text-align: center;
+}
+
+.sidebarPostContentText {
+   /*white-space: pre;*/
+   position: relative;
+   text-align: left;
+   left: 5px;
+   font-size: 15px;
+   background-color: #f5f5f5;
+   color: #fff;
+   font-weight: bold;
+   padding: 12px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   color: #4c4c4c;
+}
+
+.sidebarPostDetails {
+   margin-top: 15px;
+   color: #999999;
+}
+
+.subcommentsContainer {
+    position: relative;
+    margin-top: 15px;
+}
+
+.subcommentPostDetails {
+    margin-top: 15px;
+    color: #999999;
+}
+
+.individualSubcommentContainer {
+    position: relative;
+    text-align: left;
+    float: center;
+    left: 5px;
+    font-size: 12px;
+    background-color: #fff9f0;
+    color: #fff;
+    font-weight: bold;
+    width: 90%;
+    padding: 12px;
+    margin: 5px auto;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #4c4c4c;
+}
+
+#postNewReview {
+   font-size: 20px !important;
+}
+
+img#icon {
+   margin: 5px 10px 5px 0px;
+   width: 25px;
+}
+
+.noReviewsText {
+   display: none;
+   font-weight: bold;
+   /*padding-left: 30px;*/
+   padding-bottom: 10px;
+   padding-top: 10px;
+   font-size: 15px;
+   color: #a6a6a6;
+   text-align: center;
+}
+
+
+ul.list-group {
+   background-color: white;
+}
+
+a.list-group-item {
+   background-color: white;
+}
+
+p#postNewReview {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   display: inline;
+}
+
+.collapse#dropdownArea {
+   border-left: 1px solid #D5D5D5;
+   border-right: 1px solid #D5D5D5;
+   background-color: #f2f2f2;
+
+}
+
+.collapse#dropdownArea2 {
+   border-left: 1px solid #D5D5D5;
+   border-right: 1px solid #D5D5D5;
+   background-color: #f2f2f2;
+
+}
+
+ul.list-group#newForumPostContainer {
+   background-color: #EDEDED;
+}
+
+.outsideForm {
+   padding:20px 0px 5px 0px;
+
+}
+
+a.list-group-item.reviewSectionPosts {
+   background-color: white;
+   position: relative;
+}
+
+.lowerContentContainer {
+   position: relative;
+}
+
+.content#reviewTextContainer {
+   width: 85%;
+   display: inline-block;
+   height: auto;
+   margin-left: 5px;
+   vertical-align: top;
+}
+
+.reviewTagVoteContainer {
+   display: inline-block;
+   width: 15%;
+   margin-top: -2px;
+   text-align: center;
+}
+
+#reviewTag {
+   margin-top: 0px;
+   margin-bottom: 2px;
+   text-align: inherit;
+   color: #cccccc;
+   font-size: 15px;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-bottom: 5px solid #ababab;
+}
+
+.arrow-down {
+   width: 0;
+   height: 0;
+   border-left: 5px solid transparent;
+   border-right: 5px solid transparent;
+
+   border-top: 5px solid #ababab;
+}
+
+.voteNotification {
+   z-index: 10;
+   background-color: #ababab;
+   color: white;
+   display: none;
+   border-radius: 5px;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+
+}
+
+
+.voteNotification#upCount {
+   margin-left: -10px;
+   margin-top: -20px;
+}
+
+.voteNotification#downCount {
+   margin-top: -8px;
+   margin-left: -9px;
+}
+
+.voteNotification#upNotify {
+   margin-left: -10px;
+   margin-top: -20px;
+}
+
+
+.voteNotification#downNotify {
+   margin-top: -8px;
+   margin-left: -9px;
+}
+
+.glyphicon.glyphicon-triangle-top {
+   font-size: 20px;
+}
+
+.glyphicon.glyphicon-triangle-bottom {
+   font-size: 20px;
+}
+
+.glyphicon.glyphicon-triangle-top#upvote:hover {
+   color: #87E293;
+   cursor: pointer;
+}
+
+.glyphicon.glyphicon-triangle-top#alreadyVoted {
+   color: #87E293;
+}
+
+.glyphicon.glyphicon-triangle-bottom#alreadyVoted {
+   color: #ff4c4c;
+}
+
+.glyphicon.glyphicon-triangle-bottom#downvote:hover {
+   color: #ff4c4c;
+   cursor: pointer;
+}
+
+.upvoteForm {
+   margin-bottom: 5px;
+   z-index: 9;
+}
+
+
+.lowerContentContainer {
+   margin-top: 15px;
+   margin-bottom: 5px;
+}
+
+#reviewTag.notLoggedInTag {
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+
+
+.col-xs-6#removeRightPadding {
+   padding-right: 0px;
+}
+
+.col-xs-6#hoursField {
+}
+
+select.form-control.form-control-lg {
+   font-family: 'Trebuchet MS';
+   font-size:14px;
+}
+
+textarea.form-control {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   resize: none;
+   height:100px;
+}
+
+button.btn.btn-primary {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   margin-left: 14px;
+   background-color: #7f725a;
+   border-color: #7f725a;
+}
+
+button.btn.btn-primary:hover {
+   background-color: #ccb790;
+}
+
+input#anonymousPost {
+   margin-left:15px;
+}
+
+label#checkboxAnon {
+   padding-left: 5px;
+   font-family: 'Trebuchet MS';
+   font-size:14px;
+}
+
+.right {
+   float: right;
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+}
+
+.left {
+   float: left;
+}
+
+.middle {
+   margin-top: 5px;
+   display: inline-block;
+}
+
+.reviewRatingHeader {
+   margin-right: 5px;
+   font-family: Gadget, sans-serif;
+   color: #7f7f7;
+}
+
+img#circle {
+   margin: 5px;
+   margin-bottom: 10px;
+   width: 30px;
+   border-radius: 15px;
+}
+
+.header {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   margin-left: 5px;
+   color: black;
+}
+
+.deleteForm {
+   width: 50px;
+}
+
+#deleteButton {
+   text-decoration: underline;
+   cursor: pointer;
+   color: #a3a3a3;
+}
+
+
+#deleteButton:hover {
+   color: #ff4c4c;
+}
+
+
+/*Start of Facebook Friends section*/
+
+.facebookFriendsContainer {
+   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+   padding-bottom: 10px;
+   text-align: center;
+}
+
+.profileTable {
+   table-layout: fixed;
+}
+
+#facebookFriendsBody {
+   width: 80%;
+
+}
+
+.sectionHeader#classes {
+  padding-top: 10px;
+}
+
+
+.facebookProfilesContainer {
+   text-align: center;
+   margin-bottom: 10px;
+}
+
+#facebookFriend {
+   display: inline-block;
+   width: auto;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
+.facebookFriendPic {
+   text-align: center;
+   width: 100%;
+}
+
+.singleFriendColumn {
+   padding-top: 10px;
+   vertical-align: top;
+   width: auto;
+   word-wrap: break-word;
+}
+
+.profilePic {
+   position: relative;
+   background-position: 50% 50%;
+   background-repeat: no-repeat;
+   background-size: cover;
+
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+}
+
+.facebookFriendName {
+   color: #666666;
+   text-align: center;
+   padding-top: 5px;
+
+}
+
+#noFriendsContainer {
+   text-align: center;
+}
+
+span#noFriendsText {
+   font-weight: bold;
+   /*padding-left: 30px;*/
+   padding-bottom: 5px;
+   color: #a6a6a6;
+   display: inline-block;
+   text-align: center;
+}
+
+#noProfileContainer {
+   text-align: center;
+}
+
+#noProfileMessage {
+   font-weight: bold;
+   /*padding-left: 30px;*/
+   padding-bottom: 5px;
+   color: #a6a6a6;
+   text-align: center;
+   display: inline-block;
+}
+
+#logInText {
+   font-weight: bold;
+   padding-top: 25px;
+   padding-bottom: 25px;
+   color: black;
+   width: 100%;
+   display: inline-block;
+   text-align: center;
+}
+
+
+.seeMoreFriendsContainer {
+   text-decoration: underline;
+   color: #a3a3a3;
+   display: none;
+   cursor: pointer;
+}
+
+.seeMoreFriendsContainer:hover {
+   color: #e0e0e0;
+}
+
+.overflowFriendRow {
+   display: none;
+}
+/*END of Facebook Friends section*/
+
+.content {
+   padding: 0px 10px 10px 0px;
+}
+
+.description {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+}
+
+/*Start Professor List section in sidebar*/
+.noProfContainer {
+   text-align: center;
+}
+
+.table_container {
+   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+}
+/*End Professor List section in sidebar*/
+
+/*Start FAQ section in sidebar*/
+.faqContainer {
+   border-top: 1px solid rgba(34, 36, 38, 0.15);
+   margin-top: 10px;
+   padding-top: 10px;
+}
+
+.faqContents {
+   -webkit-filter: blur(10px);
+   -moz-filter: blur(10px);
+   -ms-filter: blur(10px);
+   -o-filter: blur(10px);
+   filter: blur(10px);
+}
+
+.generalFAQContainer {
+   position: relative;
+}
+
+#inDevMessage {
+   font-size: 20px;
+   font-family: sans-serif;
+   vertical-align: middle;
+   padding-top: 10%;
+   text-align: center;
+}
+
+#faqTitle {
+   font-weight: lighter;
+   font-size: 15px;
+}
+
+.faqContents,
+#inDevMessage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#inDevMessage {
+  z-index: 10;
+}
+
+
+ul.list-group.faq {
+   margin: 10px;
+   min-height: 0px;
+}
+
+a.list-group-item {
+   background-color:#EDEDED;
+}
+
+
+
+p#faqDrop {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   display: inline;
+   margin-right: 5px;
+}
+
+p#insideFaq {
+   margin: 15px 15px 15px 20px;
+   font-family: "Trebuchet MS";
+}
+
+/* LOADING SCREEN */
+
+.loader,
+   .loader:after {
+       border-radius: 50%;
+       width: 10em;
+       height: 10em;
+   }
+   .loader {
+       margin: 60px auto;
+       font-size: 10px;
+       position: relative;
+       text-indent: -9999em;
+       border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+       border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+       border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+       border-left: 1.1em solid #ffffff;
+       -webkit-transform: translateZ(0);
+       -ms-transform: translateZ(0);
+       transform: translateZ(0);
+       -webkit-animation: load8 1.1s infinite linear;
+       animation: load8 1.1s infinite linear;
+   }
+   @-webkit-keyframes load8 {
+       0% {
+           -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+       }
+       100% {
+           -webkit-transform: rotate(360deg);
+           transform: rotate(360deg);
+       }
+   }
+   @keyframes load8 {
+       0% {
+           -webkit-transform: rotate(0deg);
+           transform: rotate(0deg);
+       }
+       100% {
+           -webkit-transform: rotate(360deg);
+           transform: rotate(360deg);
+       }
+   }
+   #loadingDiv {
+       position:absolute;;
+       top:0;
+       left:0;
+       width:100%;
+       height:100%;
+       background-color:#000;
+   }
+
+   .ui.button#calculate {
+     border-radius: 3px;
+     font-family: "Trebuchet MS";
+     text-decoration: none;
+     background: #FFEFAA;
+     position: relative;
+     display: inline-block;
+     text-align: center;
+     cursor: pointer;
+
+     width: 110px;
+     height: 20px;
+  }
+
+  .ui.button#calculate:hover {
+     background-color: #ffd699;
+  }
+
+/*End FAQ section in sidebar*/

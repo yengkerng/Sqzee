@@ -1,0 +1,517 @@
+@media only screen and (max-width: 600px) {
+
+  div.right {
+    width: 10%;
+  }
+
+  table {
+    font-size: 12px;
+    width: 100%;
+  }
+
+
+  div.container{
+    width: 100px;
+   }
+
+  div.center {
+    display: table-footer-group;
+    width: 100%;
+  }
+
+ div.enrolledClassesContainer {
+    width: 100%;
+    height: auto;
+    min-height: 0px;
+ }
+
+ div.newsContainer {
+    margin-top: 0px;
+    width: 100%;
+    height: 30%;
+    overflow: visible;
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
+
+    border-right: none;
+ }
+
+
+ ul.nav-tabs.mainNav > li {
+     float:none;
+     display:inline-block;
+     *display:inline; /* ie7 fix */
+      zoom:1; /* hasLayout ie7 trigger */
+ }
+
+ ul.nav-tabs.mainNav {
+     text-align:center;
+ }
+
+ div.leftPortion {
+    width: 100%;
+ }
+
+ img#imgCircle {
+    width: 80px;
+    height: 80px;
+ }
+
+ div.rightPortion {
+    height: 100px;
+    width: 100%;
+    padding: 0px;
+ }
+
+ div.welcomeArea {
+    text-align: center;
+    font-size: 24px;
+ }
+
+ div.universityArea {
+    text-align: center;
+    font-size: 16px;
+ }
+
+ div.majorArea {
+    text-align: center;
+    font-size: 16px;
+ }
+
+ form.ui.form#addClassSearch {
+    margin: auto;
+    width: auto;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-bottom: 5px;
+ }
+
+}
+
+.container{
+  background:white;
+  display:table;
+ }
+
+.left{
+  background:white;
+  display:table-cell;
+  width:92%;
+}
+
+.center{
+  background:#DCDCDC;
+  display:table-cell;
+  width:6%;
+}
+
+.right{
+  background:white;
+  display:table-cell;
+  width:92%;
+}
+
+.headContainer {
+   width: auto;
+   height: auto;
+   /*max-height: 400px;*/
+
+   background-image: url("./../../misc/background/gradient8.jpg");
+   background-size: cover;
+   background-position: left;
+}
+
+div.tab-content {
+   width: 80%;
+   margin: auto;
+   align-items: center;
+}
+
+
+.leftPortion {
+   width: 25%;
+   height: auto;
+   display: inline-block;
+   vertical-align: top;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.imageContainer {
+   padding:20px;
+
+   display: flex;
+   align-items: center;
+   justify: center;
+   text-align: center;
+   vertical-align: middle;
+   overflow: hidden;
+}
+
+#imgCircle {
+   position: relative;
+   /*float: left;*/
+   width:  140px;
+   height: 140px;
+   background-position: 50% 50%;
+   background-repeat: no-repeat;
+   background-size: cover;
+
+   border-radius: 50%;
+   margin: auto;
+   border-color: white;
+   border-style: solid;
+   border-width: 5px;
+}
+
+#imgSquare {
+    width: 300px;
+    height: 300px
+    margin: auto;
+    border-color: white;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.rightPortion {
+   width: 75%;
+   height: auto;
+   display: inline-block;
+   vertical-align: top;
+
+   padding: 20px 0px 20px 0px;
+}
+
+.welcomeArea {
+   color: white;
+
+   font-family: "Trebuchet MS";
+   font-size: 38px;
+
+   text-align: left;
+}
+
+#personName {
+   /*color: #6fbbe2;*/
+   color: white;
+}
+
+.universityArea {
+   margin-top: 10px;
+   font-family: "Trebuchet MS";
+   font-size: 22px;
+   color: white;
+
+   text-align: left;
+}
+
+.majorArea {
+   color: white;
+
+   font-family: "Trebuchet MS";
+   font-size: 22px;
+
+   text-align: left;
+}
+
+.buttonContainer {
+   text-align: center;
+   width: 100%;
+   align-items: center;
+}
+
+.ui.button#addClass {
+   border-radius: 5px;
+   font-family: "Trebuchet MS";
+   text-decoration: none;
+   background: #ffc266;
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+
+   width: 250px;
+   height: 40px;
+
+   margin-bottom: 10px;
+}
+
+.ui.button#addClass:hover {
+   background-color: #ffd699;
+}
+
+.ui.button#calculate {
+   border-radius: 3px;
+   font-family: "Trebuchet MS";
+   text-decoration: none;
+   background: #FFEFAA;
+   position: relative;
+   display: inline-block;
+   text-align: center;
+   cursor: pointer;
+
+   width: 110px;
+   height: 20px;
+}
+
+.ui.button#calculate:hover {
+   background-color: #ffd699;
+}
+
+.ui.button#calculateGPA {
+   border-radius: 3px;
+   font-family: "Trebuchet MS";
+   text-decoration: none;
+   background: #FFEFAA;
+   position: relative;
+   display: inline-block;
+   text-align: center;
+   cursor: pointer;
+
+   width: 110px;
+   height: 20px;
+}
+
+.ui.button#calculateGPA:hover {
+   background-color: #ffd699;
+}
+
+#addClassText {
+   color: black;
+   font-family: "Trebuchet MS";
+   font-size: 14px;
+   line-height: 3em;
+   display: flex;
+   flex-direction: column;
+   vertical-align: middle;
+   justify-content: center;
+   width: auto;
+   height: auto;
+}
+
+
+/* BEGIN SEARCH BAR IMPLEMENTATION */
+.addClassSearchContainer {
+   display: none;
+   width: 100%;
+   text-align: center;
+   align-items: center;
+}
+
+.ui.form#addClassSearch {
+   margin: auto;
+   width: 500px;
+}
+
+table {
+  font-family: "Trebuchet MS";
+}
+
+
+
+/* END SEARCH BAR IMPLEMENTATION*/
+
+.nav-tabs.mainNav {
+   /*margin-top: 2px;*/
+   /*padding-left: 5px;*/
+   margin-bottom: 0px;
+   border-bottom: 3px solid #DDD;
+}
+
+.nav-tabs.mainNav li {
+   margin-bottom: -3px;
+}
+
+.nav-tabs.mainNav > li > a {
+   color: #555;
+}
+
+.nav-tabs.mainNav > li.active {
+   border-bottom: 3px solid #337ab7;
+   color: #337ab7;
+}
+
+.nav-tabs.mainNav > li.active > a {
+   color: #337ab7;
+}
+
+ .nav-tabs.mainNav > li.active > a {
+    border: none;
+    padding: none;
+    background: transparent;
+}
+
+.nav-tabs.mainNav > li:not(.active) > a:focus,
+.nav-tabs.mainNav > li:not(.active) > a:hover {
+   background: none;
+   border: none;
+   border-bottom: 3px solid #337ab7;
+}
+
+.nav-tabs.mainNav > li > a:focus,
+.nav-tabs.mainNav > li > a:hover {
+   cursor: pointer;
+}
+
+.lowerSection {
+   width: 100%;
+   padding-top: 5px;
+}
+
+.enrolledClassesContainer {
+   width: 100%;
+   height: 100%;
+   min-height: 400px;
+   float: right;
+}
+
+.header {
+   font-family: "Trebuchet MS";
+   font-size: 22px;
+   color: #424242;
+
+   padding-top: 10px;
+   width: 100%;
+   text-align: center;
+}
+
+.newsContainer {
+   width: 35%;
+   height: 100%;
+   min-height: 400px;
+   float: left;
+
+   border-right: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+.classLists {
+   margin-top: 2px;
+   padding-left: 5px;
+}
+
+
+.tableStyle {
+   margin: 10px auto;
+   width: 95%;
+   background: rgba(0, 0, 0, 0.07);
+   border-radius: 5px;
+}
+
+.tableStyle tr:not(:first-child) {
+   height: 20px;
+   border-top: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+.tableStyle td {
+   padding: 10px;
+}
+
+.yourEnrolledClass {
+   font-weight: bold;
+   width: 70%;
+   color: white;
+}
+
+.yourEnrolledClass:hover {
+   color: white;
+   cursor: pointer;
+   text-decoration: none;
+
+}
+
+.classCode {
+   font-size: 17px;
+   color: #278cbe;
+}
+
+.className {
+   font-size: 15px;
+   color: #278cbe;
+}
+
+.friendsInClass {
+   font-size: 13px;
+   width: 25%;
+}
+
+.friendsInClass:hover {
+   color: rgba(0, 0, 0, 0.5);
+   cursor: pointer;
+}
+
+.enrollmentOptions {
+   width: 5%;
+}
+
+.tableStyle#previous {
+   background: #f9c1b5;
+}
+
+/* START OF NEWSFEED CSS */
+
+.media-object {
+   border-radius: 50%;
+   overflow: hidden;
+   width: 40px;
+   height: 40px;
+}
+.box h3{
+  text-align:center;
+    position:relative;
+    top:16px;
+}
+
+.box p {
+     text-align:center;
+     position:relative;
+     top:30px;
+}
+.box h4 {
+     text-align:center;
+     position:relative;
+     top:30px;
+
+}
+
+.box {
+    width:100%;
+    height:400px;
+    margin:20px auto;
+
+}
+
+.effect8
+{
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.0) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.0) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.0) inset;
+}
+
+#linkItem {
+   color: #4CABDB;
+}
+
+#linkItem:hover {
+   cursor: pointer;
+}
+
+#timePosted {
+   font-size: 11px;
+   font-weight: normal;
+   opacity: .6;
+}
+
+#extraImages {
+   padding-right: 4px;
+}
+
+#extraImages:hover {
+   cursor: pointer;
+}

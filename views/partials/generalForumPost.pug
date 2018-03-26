@@ -1,0 +1,21 @@
+html
+   li.list-group-item.forumPostBody
+      span#postID
+      .topSection
+         span.postVoting Yo
+            div.upvoteContainer
+               form.upvoteForm
+                  span.glyphicon.glyphicon-chevron-up#upvote
+            div.downvoteContainer
+               form.downvoteForm
+                  span.glyphicon.glyphicon-chevron-down#downvote
+         span.postContent
+            .postContentText
+            .postDetails
+               span.postAuthor
+               span#separator -
+               span.postDate= new Date(post.absTime).getDays()
+         span.commentsLink
+            span#commentCountStyle
+            span#commentDescriptor comments
+      .bottomSection

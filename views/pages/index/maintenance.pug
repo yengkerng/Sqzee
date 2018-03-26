@@ -1,0 +1,51 @@
+html
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+
+  link(href='/stylesheets/index/style.css', rel='stylesheet')
+
+  head
+    title Sqzee
+    //#slideshow
+    img.bgM(src='/misc/background/IMG_3590.jpg')
+    //img.bgM(src='/misc/background/IMG_3640.jpg')
+    //img.bgM(src='/misc/background/IMG_5114.jpg')
+    //img.bgM(src='/misc/background/IMG_3600.jpg')
+
+
+  body(style="margin:0px;")
+
+    section#page-top.section-style()
+      .pattern.height-resize
+         //div(align='right')
+            blockquote
+               br
+               div.box#quickLinksContainer
+                  a.item(href="/info") About
+                  - if (loggedIn) {
+                  a.item(href="/hub") My Hub
+                  -} else {
+                  a.item(href="/auth/facebooknoredirect") Log In
+                  - }
+
+         div(align='center')
+
+            - for(i=0; i < 8; i++) {
+               br
+            -   }
+
+            img(src='./sqzeelogolight.png', style='width:200px;height:200px; padding-right:50px')
+
+            - for(i=0; i <2; i++) {
+               br
+            -   }
+            //include ./../../partials/animatedSearch.pug
+
+            img(src='./Maintenance.png', style='height:150px; padding-right:20px')
+
+
+  footer
+    include ./../../partials/footer.pug
+
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+  script(type='text/javascript', src='/scripts/jquery.cycle.all.2.74.js')
+  script(type='text/javascript', src='/scripts/slideshow.js')

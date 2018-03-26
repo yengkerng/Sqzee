@@ -1,0 +1,404 @@
+@media only screen and (max-width: 1120px) {
+   div.forumContainer {
+      width: 100%;
+      height: 70%;
+   }
+   div.extraContainer {
+      width: 100%;
+      height: 30%;
+      overflow: visible;
+   }
+   div.forumTitle {
+      font-size: 28px;
+   }
+
+   ul.list-group.entireForumBody {
+      min-height: 430px;
+   }
+}
+
+@media only screen and (max-width: 785px) {
+   div.forumTitle {
+      width: 100%;
+      margin-bottom: 10px;
+      align-items: center;
+      text-align: center;
+   }
+
+   div.forumTitleContainer {
+      align-items: center;
+      text-align: center;
+   }
+
+   div.forumContainer {
+      padding-bottom: 15px;
+
+   }
+
+   div.buttonContainer {
+      text-align: center;
+      width: 100%;
+   }
+
+}
+
+
+
+html, body {
+   width: 100%;
+   height: 100%;
+}
+
+.forumTitleContainer {
+   padding-bottom: 15px;
+   vertical-align: bottom;
+   margin-top: 25px;
+}
+
+.forumClassName {
+   font-size: 50px;
+   color: inherit;
+   vertical-align: bottom;
+   line-height: 1em;
+
+}
+
+.forumClassName:hover {
+   text-decoration: none;
+   color: #cccccc;
+}
+#classForumHeader {
+   font-size: 25px;
+   padding-left: 10px;
+   vertical-align: bottom;
+}
+
+
+
+.forumTitle {
+   font-family: "Trebuchet MS";
+   color: white;
+   width: 60%;
+   text-align: left;
+   display: inline-block;
+   vertical-align: bottom;
+}
+
+.buttonContainer {
+   display: inline-block;
+   text-align: right;
+   width: 40%;
+}
+
+.ui.button#jumpBackClassButton {
+   border-radius: 5px;
+   text-align: center;
+   vertical-align: middle;
+
+   font-family: "Trebuchet MS";
+   text-decoration: none;
+   display: inline-block;
+   color: #000000;
+
+   background: #FE731B;
+   width: 300px;
+   height: 45px;
+}
+
+.ui.button#jumpBackClassButton:hover {
+   background: #fe924d;
+}
+
+.jumpBackClassButtonText {
+   vertical-align: baseline;
+   line-height: 3em;
+   font-size: 14px;
+   height: auto;
+   justify-content: center;
+}
+
+.forumContainer {
+   width: 70%;
+   height: 100%;
+   min-height: 600px;
+   float:left;
+
+   background-color: #076382;
+
+   padding: 0px 20px 0px 20px;
+}
+
+.forum#classForum {
+   border-radius: 5px;
+   background-color: white;
+}
+
+.extraContainer {
+   width: 30%;
+   height: 100%;
+   min-height: 600px;
+   float:right;
+
+   overflow: scroll;
+}
+
+#returnLink {
+   color: inherit;
+   vertical-align: bottom;
+   width: auto;
+
+}
+
+#returnLink:hover {
+   text-decoration: none;
+   color: #cccccc;
+}
+
+.list-group-item.forumPostHeader {
+   background-color: white;
+}
+
+.list-group-item.forumPostBody {
+   background-color: white;
+}
+
+.list-group-item.forumPostBody:hover {
+   background-color: #f5f5f5;
+}
+
+.list-group.entireForumBody {
+   background-color: white;
+}
+
+
+
+ul.list-group {
+   background-color:#EDEDED;
+   min-height: 600px;
+   border-radius: 5px;
+   width: 100%;
+}
+
+ul.list-group.faq {
+   margin: 10px;
+   min-height: 0px;
+}
+
+a.list-group-item {
+   background-color:#EDEDED;
+}
+
+li.list-group-item {
+   background-color:#EBECEB;
+}
+
+p#postNewReview {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   display: inline;
+   margin-right: 5px;
+}
+
+p#faqDrop {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   display: inline;
+   margin-right: 5px;
+}
+
+.collapse#dropdownArea {
+   border-left: 1px solid #D5D5D5;
+   border-right: 1px solid #D5D5D5;
+}
+
+.outsideForm {
+   padding:20px 0px 5px 0px;
+}
+
+#removeRightPadding {
+   padding-right:0px;
+}
+
+select.form-control.form-control-lg {
+   font-family: 'Trebuchet MS';
+   font-size:14px;
+}
+
+textarea.form-control {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   resize: none;
+   height:100px;
+}
+
+button.btn.btn-primary {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   margin-left: 14px;
+   background-color: #FE731B;
+   border-color: #FE731B;
+}
+
+
+button.btn.btn-primary:hover {
+   background-color: #fe9d5f;
+}
+
+input#anonymousPost {
+   margin-left:15px;
+}
+
+label#checkboxAnon {
+   padding-left: 5px;
+   font-family: 'Trebuchet MS';
+   font-size:14px;
+}
+
+.right {
+   float: right;
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+}
+
+.left {
+   float: left;
+}
+
+img#circle {
+   margin: 5px;
+   width: 30px;
+   border-radius: 15px;
+}
+
+img#icon {
+   margin: 5px 10px 5px 0px;
+   width: 25px;
+}
+
+.header {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+}
+
+.content {
+   padding: 10px 10px 10px 10px;
+}
+
+.description {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   overflow: hidden;
+   white-space: pre-wrap;
+   background-color: #F6F6F6;
+   padding: 10px;
+}
+
+.sectionHeader {
+   font-size: 18px;
+   font-family: "Trebuchet MS";
+   font-weight: bold;
+   padding: 10px 0px 0px 0px;
+   color: #424242;
+   text-align: center;
+}
+
+.sidebarTitleContainer {
+   height: 90px;
+   background-color: #5191a7;
+   padding: 20px;
+}
+
+#sidebarTitle {
+   font-size: 30px;
+   font-family: "Trebuchet MS";
+   font-weight: bold;
+   padding: 10px 0px 10px 0px;
+   color: white;
+   text-align: center;
+}
+
+.infoContainer {
+   /*border-bottom: 1px solid rgba(34, 36, 38, 0.15);*/
+}
+
+.imgContainer {
+   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+}
+
+
+.blurredContainer {
+   -webkit-filter: blur(10px);
+   -moz-filter: blur(10px);
+   -ms-filter: blur(10px);
+   -o-filter: blur(10px);
+   filter: blur(10px);
+}
+
+
+
+.faqContainer {
+   margin-top: 10px;
+   padding-top: 10px;
+}
+
+.faqContents {
+   -webkit-filter: blur(10px);
+   -moz-filter: blur(10px);
+   -ms-filter: blur(10px);
+   -o-filter: blur(10px);
+   filter: blur(10px);
+}
+
+.infoContainer {
+   position: relative;
+}
+
+#inDevMessage {
+   font-size: 23px;
+   font-family: sans-serif;
+   vertical-align: middle;
+   padding-top: 10%;
+   text-align: center;
+}
+
+#faqTitle {
+   font-weight: lighter;
+   font-size: 15px;
+}
+
+.faqContents,
+#inDevMessage {
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+
+#inDevMessage {
+ z-index: 10;
+}
+
+
+ul.list-group.faq {
+   margin: 10px;
+   min-height: 0px;
+}
+
+a.list-group-item {
+   background-color:#EDEDED;
+}
+
+
+
+p#faqDrop {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   display: inline;
+   margin-right: 5px;
+}
+
+p#insideFaq {
+   margin: 15px 15px 15px 20px;
+   font-family: "Trebuchet MS";
+}

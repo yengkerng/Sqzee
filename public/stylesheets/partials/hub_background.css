@@ -1,0 +1,25 @@
+body {
+    background-image: url("http://californiacoastalrealestate.com/wp-content/uploads/2014/10/slohills.jpg");
+}
+
+#block_container
+{
+   width:100%;
+   height:100%;
+   float:left;
+   text-align:justify;
+   margin-bottom:15px;
+}
+#bloc1 {
+   width:49%;
+    float:left;
+
+
+}
+#bloc2
+{
+   
+    float:left;
+    width:49%;
+    display:inline-block;
+}

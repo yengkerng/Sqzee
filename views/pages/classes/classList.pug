@@ -1,0 +1,67 @@
+html
+   head
+      title Classes
+      include ./../../partials/header.pug
+      link(href="/stylesheets/classes/classList2.css", rel='stylesheet', type='text/css')
+      script(type='text/javascript', src='/scripts/class/ListPageInteract.js')
+      script(type='text/javascript', src='/scripts/listSort/listSort.js')
+   body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+
+      section.titleContainer
+         div.title Class List
+
+      section.listContainer
+         div.departmentTitle Departments
+         div.departmentsContainer
+      section.sidebarContainer
+         div.enrolledClassesContainer
+            div.enrolledClassesTitle Enrolled Classes
+            div.enrolledClassesContainer
+               - if (loggedIn == true) {
+                  table.enrolledClassesTable
+                     tbody.enrolledClassTableBody
+                        each enrolledClass in enrolledList
+                           - var classProfessors = enrolledClass.previousQrtProfessors + "," + enrolledClass.currQrtProfessors + "," + enrolledClass.nextQtrProfessors;
+                           tr(data-department=enrolledClass.department data-courseNum=enrolledClass.courseNum data-classID=enrolledClass._id data-className=enrolledClass.name data-units=enrolledClass.units data-rating=enrolledClass.rating data-numHrs=enrolledClass.numHrs data-profs=classProfessors).oneClassRow
+                              td.classDetailColumn
+                                 div.classTitleContainer
+                                    a(href="/class/" + enrolledClass.department + "-" + enrolledClass.courseNum).enrolledClassTitle= enrolledClass.department + " " + enrolledClass.courseNum
+                                 div.enrolledClassName= enrolledClass.name
+                              td.enrolledUnitsColumn
+                                 =enrolledClass.units
+                              td.deleteColumn
+                                 img.ui.small.image#deleteicon(src='/misc/deleteicon.png' style="min-width:22px; max-width:22px;")
+                        
+               - } else {
+                  div.loginPrompt Login to see classes!
+               - }
+         - if (loggedIn == true) {
+            div.scheduleStatsContainer
+               div.unitsContainer
+                  span.statsTitle Total Units
+                  span.statsNumber#totalUnits
+               div.difficultyContainer
+                  span.statsTitle Average Difficulty
+                  span.statsNumber#avgDifficulty
+               div.hoursContainer
+                  span.statsTitle Hours/Week
+                  span.statsNumber#hoursPerWeek
+            div.buttonSection
+               div.buttonContainer
+                  a.ui.button#confirmClasses
+                     span#confirmClassesText Confirm Classes
+         - }
+
+
+
+
+
+
+
+    footer
+       include ./../../partials/footer.pug

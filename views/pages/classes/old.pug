@@ -1,0 +1,360 @@
+html
+   head
+      title= classObj.department + " " + classObj.courseNum + " - " + classObj.name
+      include ./../../partials/header.pug
+      link(href="/stylesheets/test/grading.css", rel='stylesheet', type='text/css')
+      link(href="/stylesheets/classes/classStyle.css", rel='stylesheet', type='text/css')
+      //script(type='text/javascript', src='/scripts/class/classPageInteract.js')
+   body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+      section.headContainer
+         .classNameContainer
+            .headerStyle
+               span#courseInfo
+                  classTitle= classObj.department + " " + classObj.courseNum
+               span#descriptiveName
+                  className= " " + classObj.name
+            .buttonContainer
+               -if (loggedIn) {
+                  //for enClass in enrolledClasses
+                     //- if (enClass.department == classObj.department && enClass.courseNum == classObj.courseNum) {
+                  -if (!userIsEnrolled) {
+                     a.ui.button#enroll(href="/enroll/" + classObj.department + "-" + classObj.courseNum)
+                        span#enrollText ENROLL
+                  -} else {
+                     a.ui.button#enrolled(href="/enroll/" + classObj.department + "-" + classObj.courseNum + "/unenroll")
+                        span#dropText ENROLLED!
+                  -}
+               -} else {
+                  a.ui.button#notLoggedEnroll(href="/auth/facebook/")
+                     span#dropText LOG IN TO ENROLL...
+               -}
+               a.ui.button#forum(href="/forum/" + classObj.department + "-" + classObj.courseNum)
+                  span#forumText GO TO CLASS FORUM PAGE
+         .classRatingContainer
+            - var timeHigh = 0;
+            - var timeLow = 0;
+            - var count = 0;
+            #leftSide
+               .quickRatingHeader Unit(s):
+                  span#rating= classObj.units
+               - if (classObj.ge != "") {
+                  .quickRatingHeader GE:
+                     span#rating= classObj.ge
+               - }
+
+               .quickRatingHeader Average Ratings:
+                  - if (profList.length != 0) {
+                     - var tmp = 0;
+
+                     each prof in profList
+                        - if (prof.name.split("_")[0] != "STAFF") {
+                           - tmp += prof.polyRating;
+                           - if (prof.polyRating != 0) {
+                             - count += 1;
+                           -}
+                        - }
+                  - } tmp = ((tmp/count) * 2.5).toFixed(2);
+                  - timeLow = ((tmp) - (tmp)/2).toFixed(0);
+                  - timeHigh = (timeLow * (3));
+
+                  - if (count == 0){
+                     span#rating NEW
+                  - } else {
+                     span#rating= tmp
+                     span#placeholder /10
+                  - }
+
+
+
+               .quickRatingHeader Estimated Time:
+                  - if (count == 0){
+                     span#rating NEW
+                  - } else {
+                     span#rating= timeLow + " - " + timeHigh
+                     span#placeholder hrs/week
+                  - }
+
+
+            //#rightSide
+               div
+                  span#rating= classObj.units
+               div
+                  span#rating 9
+                  span#placeholder /10
+               div
+                  span#rating 15
+                  span#placeholder hrs/week
+
+      //section.descriptionSection
+         div.sectionHeader Description
+         p.sectionBody
+            = classObj.description
+
+      section.reviewSection
+         div.sectionHeader#reviews Reviews
+         .forum#classReviewForum
+            ul.list-group#reviewsContainer
+               a.list-group-item.classReviewHeader(href="#dropdownArea" data-toggle="collapse")
+                  p#postNewReview Post a new review...
+                  i.fa.fa-caret-down
+               .collapse#dropdownArea
+                  -if (loggedIn){
+                  .outsideForm
+                     form.newForumPostContiner(id="newForumPost" action='/class/' + classObj.department + '-' + classObj.courseNum + '/postReview' method='post')
+                        fieldset.form-group
+                           .col-xs-6#removeRightPadding
+                              select.form-control.form-control-lg(name="difficulty" form="newForumPost" required)
+                                 option(value="") Professor Rating
+                                 option(value="1") 1
+                                 option(value="2") 2
+                                 option(value="3") 3
+                                 option(value="4") 4
+                                 option(value="5") 5
+                                 option(value="6") 6
+                                 option(value="7") 7
+                                 option(value="8") 8
+                                 option(value="9") 9
+                                 option(value="10") 10
+
+                           .col-xs-6#hoursField
+                              select.form-control.form-control-lg(name="hrsPerWeek" form="newForumPost" required)
+                                 option(value="") Hours per Week
+                                 option(value="0") 0
+                                 option(value="1") 1
+                                 option(value="2") 2
+                                 option(value="3") 3
+                                 option(value="4") 4
+                                 option(value="5") 5
+                                 option(value="6") 6
+                                 option(value="7") 7
+                                 option(value="8") 8
+                                 option(value="9") 9
+                                 option(value="10") 10
+                                 option(value="11") 11
+                                 option(value="12") 12
+                                 option(value="13") 13
+                                 option(value="14") 14
+                                 option(value="15") 15
+                                 option(value="16") 16
+                                 option(value="17") 17
+                                 option(value="18") 18
+                                 option(value="19") 19
+                                 option(value="20") 20
+                                 option(value="21") 21
+                                 option(value="22") 22
+                                 option(Value="23") 23
+                                 option(value="24") 24
+
+                        fieldset.form-group
+                           .col-xs-4#removeRightPadding
+                              select.form-control.form-control-lg(name="rating" form="newForumPost" required)
+                                 option(value="") Rating Out of 4.0
+                                 option(value="4.0") 4.0
+                                 option(value="3.75") 3.75
+                                 option(value="3.5") 3.5
+                                 option(value="3.25") 3.25
+                                 option(value="3.0") 3.0
+                                 option(value="2.75") 2.75
+                                 option(value="2.5") 2.5
+                                 option(value="2.25") 2.25
+                                 option(value="2.0") 2.0
+                                 option(value="1.75") 1.75
+                                 option(value="1.5") 1.5
+                                 option(value="1.25") 1.25
+                                 option(value="1.0") 1.0
+                                 option(value="0.75") 0.75
+                                 option(value="0.5") 0.5
+                                 option(value="0.25") 0.25
+                                 option(value="0.0") 0.0
+
+                           .col-xs-4#removeRightPadding
+                              select.form-control.form-control-lg(name="grade" form="newForumPost" required)
+                                 option(value="") Grade Received
+                                 option(value="A") A
+                                 option(value="A-") A-
+                                 option(value="B+") B+
+                                 option(value="B") B
+                                 option(value="B-") B-
+                                 option(value="C+") C+
+                                 option(value="C") C
+                                 option(value="C-") C-
+                                 option(value="D+") D+
+                                 option(value="D") D
+                                 option(value="D-") D-
+                                 option(value="F") F
+                                 option(value="N/A") N/A
+
+                           .col-xs-4
+                              select.form-control.form-control-lg(name="reviewProfessor" form="newForumPost" required)
+                                 option(value="") Professor
+                                 each profObj in profList
+                                    option(value="" + profObj.name)= profObj.name
+
+
+                        fieldset.form-group
+                           .col-xs-12
+                              textarea.form-control(name="review" form="newForumPost" placeholder="Review here..." required)
+
+                        fieldset.form-group
+                           button.btn.btn-primary(type="submit" form="newForumPost") Submit
+                           input#anonymousPost(name="anon" form="newForumPost" type="checkbox" tabindex="0" checked)
+                           label#checkboxAnon(for="anonymousPost") Be Anonymous?
+                  - } else {
+                     a#logInText(href="/auth/facebook/")
+                        | Log In With Facebook To Review This Class
+                  - }
+
+               // Start of logic for review links
+               div.linksForReviews
+                  table.reviewLinkTable
+                     - if (profList.length != 0) {
+                        each prof in profList
+                           - if (prof.name.split("_")[0] != "STAFF") {
+                              td.professorLink
+                                 a(href="#"+prof.name)#reviewLink= prof.name
+                           - }
+                     - }
+               // End of logic
+
+               - if (profList.length != 0) {
+                  //each prof in profList
+                     - if (prof.name.split("_")[0] != "STAFF") {
+                        div.professorReviewSection
+                           div.professorReviewSectionName
+                              a(name=prof.name)#reviewLinkHeader= prof.name
+                           div.noReviewsText
+                              | No Reviews Available
+                     - }
+               - }
+               //each review in reviewList
+
+                  a.list-group-item.classReviewPost
+                     .title
+                        .right
+                           - if (!review[0].is_anonymous) {
+                              .header= review[0].user
+                           - }
+                           .header= review[0].absTime.toLocaleDateString()
+                        .left
+                           img#circle(src="/misc/difficultyColors/" + review[0].rating + ".png")
+                        .middle
+                           .reviewRatingHeader Difficulty
+                              span.header= review[0].rating + "/10"
+                           .reviewRatingHeader Time
+                              span.header= review[0].grade + " hrs/week"
+
+                     .lowerContentContainer
+                        .content#reviewTextContainer
+                           .description.classReviewContent= review[0].review
+                        .reviewTagVoteContainer
+                           - if (loggedIn) {
+                              div.upvoteContainer
+                                 span.voteNotification#upCount
+                                    reivewCount= review[0].upvotes
+                                 span.voteNotification#upNotify
+                                    | +1
+                                 form.upvoteForm(action='/class/' + classObj.department + '-' + classObj.courseNum + '/' + review[0]._id + '/upvoted' method="post")
+                                    - if (user.upvotedReviews.indexOf(review[0]._id) != -1) {
+                                          span.glyphicon.glyphicon-triangle-top#alreadyVoted
+                                    - } else {
+                                          span.glyphicon.glyphicon-triangle-top#upvote(onclick="javascript:this.parentNode.submit();")
+                                    - }
+                              #reviewTag= review[1]
+                              div.downvoteContainer
+                                 form.downvoteForm(action='/class/' + classObj.department + '-' + classObj.courseNum + '/' + review[0]._id + '/downvoted' method="post")
+                                    - if (user.downvotedReviews.indexOf(review[0]._id) != -1) {
+                                          span.glyphicon.glyphicon-triangle-bottom#alreadyVoted
+                                    - } else {
+                                          span.glyphicon.glyphicon-triangle-bottom#downvote(onclick="javascript:this.parentNode.submit();")
+                                    - }
+                                 span.voteNotification#downCount
+                                    reivewCount= review[0].downvotes
+                                 span.voteNotification#downNotify
+                                    | -1
+                           - } else {
+                              #reviewTag.notLoggedInTag= review[1]
+                           - }
+                     - if (loggedIn && user.name == review[0].user) {
+                        .deleteReviewContainer
+                           form.deleteForm(action='/class/delete/' + classObj.department + '-' + classObj.courseNum + '/' + review[0]._id method="post")
+                              span#deleteButton(onclick="javascript:this.parentNode.submit();") Delete
+                     - }
+      div.classSideBar
+         div.facebookFriendsContainer
+            div.sectionHeader#facebookHeader Facebook Friends
+            - if (loggedIn) {
+               - if (facebookFriends.length != 0) {
+                  div.facebookProfilesContainer
+                     table.profileTable
+                        tbody#facebookFriendsBody
+               - } else {
+                     span#noFriendsText
+                        | No Facebook friends are currently enrolled.
+               - }
+            - } else{
+                  span#noProfileMessage
+                     | Connect to Facebook to see friends in this class!
+            - }
+            div.seeMoreFriendsContainer
+               | Show more...
+         div.descriptionContainer
+            div.sectionHeader Description
+            p.sectionBody
+               = classObj.description
+         div.sectionHeader#classes List of Professors
+         div.table_container
+            table.table_style
+               tbody
+                  - if (profList.length != 0) {
+                     each prof in profList
+                        - if (prof.name.split("_")[0] != "STAFF") {
+
+                           tr
+                              td.professor_pic
+                              td.proffesor_info
+                                    a(href="/professor/" + prof._id).professor_name#class= prof.name
+                                    br
+                                    span.professor_depart= prof.department
+                                    td.rating_column
+                        - }
+                  - } else {
+                     div.noProfContainer
+                        span#noProfileMessage
+                           | All sections are specified as STAFF
+                  - }
+
+
+         //div.faqContainer
+            //.sectionHeader Frequently Asked Questions
+            .generalFAQContainer
+               #inDevMessage
+                  #faqTitle Frequently Asked Questions
+                  #comingSoon Coming Soon
+               .faqContents
+                     ul.list-group.faq
+                     a.list-group-item.faq(href="#faq1" data-toggle="collapse")
+                        p#faqDrop Is this a difficult class?
+                        i.fa.fa-caret-down
+                     //.collapse#faq1
+                        p#insideFaq Yes, this class has been known to be very difficult.
+                     a.list-group-item.faq(href="#faq2" data-toggle="collapse")
+                        p#faqDrop How much work comes with this class?
+                        i.fa.fa-caret-down
+                     //.collapse#faq2
+                        p#insideFaq This class typically does not have a lot of 'busy' work, but depending on the professor you may have to complete a quite a few large assignments.
+                     a.list-group-item.faq(href="#faq3" data-toggle="collapse")
+                        p#faqDrop Do I need a textbook for this class?
+                        i.fa.fa-caret-down
+                     //.collapse#faq3
+                        p#insideFaq Quite a large number of the professors for this class are known to require a textbook in the completion of this class.
+                        p#insideFaq If you do not have a textbook for this class yet, check out
+                           a(href="www.chegg.com")= " Chegg.com "
+                           | for some great deals on textbooks.
+      script(type='text/javascript', src='/scripts/class/classPageInteract.js')
+   footer
+      include ./../../partials/footer.pug

@@ -1,0 +1,159 @@
+html
+   head
+      title Classes
+      include ./../../partials/header.pug
+      link(href="/stylesheets/classes/classList.css", rel='stylesheet', type='text/css')
+      script(type='text/javascript', src='/scripts/class/classListInteract.js')
+      script(type='text/javascript', src='/scripts/listSort/listSort.js')
+   body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+
+      section.titleContainer
+         div.title
+            | List of Classes:
+         div.buttonWrapper.text-center
+            span#sortHeader sort by:
+            div.btn-group.btn-group-xs(role='group', aria-label='Basic example')
+               button.btn.btn-secondary#sortClass(type='button') Class Title
+               button.btn.btn-secondary#sortClassLongName(type='button') Class Name
+               button.btn.btn-secondary#sortEnrolledStudents(type='button') # of Students
+               button.btn.btn-secondary#sortUnits(type='button') Units
+
+
+      div.container#body
+         div(align='center')
+            div.table_container
+               table.table_style
+                  tbody#listClassContents
+
+                     // for classes you're enrolled in
+                  - if (loggedIn == false) {
+                     tr.columHeaders
+                        th.addingHeader
+                        th.searchHeader
+                           | Class
+                        th.unitsHeader
+                           | Units
+
+
+                           each oneClass in classList
+                              tr.oneClassRow
+                                 td.addingColumn
+                                    .ui.move.reveal
+                                      //.visible.content
+                                      a(href="/enroll/" + oneClass.department + "-" + oneClass.courseNum)
+                                         img.ui.small.image#addicon(src='/misc/addIcon3.png' style="min-width:25px; max-width:25px;")
+
+                                 td.searchColumn
+                                    ui.relaxed.divided.list
+                                      .item
+                                        .content
+                                           a(href="/class/" + oneClass.department + "-" + oneClass.courseNum).professor_name= oneClass.department + " " + oneClass.courseNum
+                                    span.professor_depart= oneClass.name
+                                 td.unitsColumn
+                                    = oneClass.units
+
+                                 - if (oneClass.numRatings != 0){
+                                    td.detailColumn
+                                       = oneClass.rating
+                                 - } else {
+                                    td.detailColumn
+                                       = "NEW"
+                                 - }
+
+                  - }
+                  - else if (loggedIn == true) {
+                     tr.columHeaders
+                        th.addingHeader
+                        th.searchHeader
+                           | Enrolled Classes
+                        th.unitsHeader
+                           | Units
+
+                           each tmp in enrolledList
+                              tr.oneClassRow
+                                 td.addingColumn
+                                    .ui.move.reveal
+                                      //.visible.content
+                                      a(href="/enroll/" + tmp.department + "-" + tmp.courseNum + "/unenroll")
+                                         img.ui.small.image#deleteicon(src='/misc/deleteicon.png' style="min-width:22px; max-width:22px;")
+
+                                 td.searchColumn
+                                    ui.relaxed.divided.list
+                                      .item
+                                        .content
+                                           a(href="/class/" + tmp.department + "-" + tmp.courseNum).professor_name= tmp.department + " " + tmp.courseNum
+                                    span.professor_depart= tmp.name
+
+                                    td.unitsColumn
+                                       = tmp.units
+
+                                 - if (tmp.rating != null){
+                                    td.detailColumn
+                                       = tmp.rating
+                                 - } else {
+                                    td.detailColumn
+                                       = "NEW"
+                                 - }
+                     - }
+
+
+                     // for classes lists
+                     tr.columHeaders
+
+                        br
+                        th.addingHeader
+
+                        th.searchHeader
+                           | Class
+                        th.unitsHeader
+                           | Units
+
+
+                           - var updatedList = [];
+                           - var classBoolean = false;
+                           each oneClass in classList
+                              each tmp in enrolledList
+                                 - if ( (tmp.department).localeCompare(oneClass.department) == 0 && (tmp.courseNum == oneClass.courseNum)) {
+                                   - classBoolean = true;
+                                 - }
+                              - if (classBoolean == false) {
+                                - updatedList.push(oneClass);
+                              - } else {
+                                - classBoolean = false;
+                              - }
+
+                           each oneClass in updatedList
+                                 tr.oneClassRow
+                                    td.addingColumn
+                                       .ui.move.reveal
+                                         //.visible.contentstr1.localeCompare(str2)
+                                         a(href="/enroll/" + oneClass.department + "-" + oneClass.courseNum)
+                                            img.ui.small.image#addicon(src='/misc/addIcon3.png' style="min-width:25px; max-width:25px;")
+
+                                    td.searchColumn
+                                       ui.relaxed.divided.list
+                                         .item
+                                           .content
+                                              a(href="/class/" + oneClass.department + "-" + oneClass.courseNum).professor_name= oneClass.department + " " + oneClass.courseNum
+                                       span.professor_depart= oneClass.name
+                                    td.unitsColumn
+                                       = oneClass.units
+                                    - if (oneClass.rating != 0){
+                                       td.detailColumn
+                                          = oneClass.rating
+                                    - } else {
+                                       td.detailColumn
+                                          = "NEW"
+                                    - }
+
+
+
+
+
+   footer
+      include ./../../partials/footer.pug

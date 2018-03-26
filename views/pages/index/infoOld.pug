@@ -1,0 +1,67 @@
+doctype html
+html(lang='en')
+   head
+      include ./../../partials/header.pug
+      title About Sqzee
+      link(href='/stylesheets/index/bootstrap.min.css', rel='stylesheet')
+      link(href='/stylesheets/index/business-casual.css', rel='stylesheet')
+      //link(href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800", rel='stylesheet', type='text/css')
+      //link(href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic", rel='stylesheet', type='text/css')
+      //script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      //script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+   body
+      include ./../../partials/navBarStatic.pug
+      .container
+         .row
+            .box
+               .col-lg-12
+                  hr
+                  h2.intro-text.text-center
+                     | About
+                  hr
+               .col-md-6
+                  img.img-responsive.img-border-left(src="../misc/team.jpg", alt='')
+               .col-md-6(style="margin-top:10px;")
+                  p.
+                     The only thing more important to a college student than money is time. While
+                     students have access to university provided websites and can outsource help to private
+                     companies found on the Internet, the former is often more convoluted than its worth and
+                     the latter can take page after page to finally locate the correct resource. Simply put,
+                     there is a need for a more streamlined project.
+
+                     Sqzee.com was founded under that premise; of uniting students from all walks of life, all walks of earth.
+                     Our website is able to provide resources for specific classes and teachers at any university, forums to provide
+                     advice and conversation, a scheduling interface to catalogue curriculums, and provide
+                     students with an encompassing, expansive site, while also tailoring the content to fit
+                     their individual situation.
+
+
+      .clearfixNew(style="margin:20px;background: #fff;background: rgba(255,255,255,0.9); padding:10px;")
+         .rowNew
+            .boxNew
+               .col-lg-12New
+                  hr
+                  h2.intro-text.text-center
+                     | Our
+                     strong Team
+                  hr
+               .col-sm-4New.text-center(style="width:33%; padding:20px; display:inline-block;")
+                  img.img-responsive(src='../misc/headshots/YengTan.jpg', alt='')
+                  h4
+                     | Yeng Tan
+                  small Job Title
+               .col-sm-4New.text-center(style="width:33%; padding:20px; display:inline-block;")
+                  img.img-responsive(src='../misc/headshots/MitchellOverfield.jpg', alt='')
+                  h4
+                     | Mitchell Overfield
+                  small Job Title
+               .col-sm-4New.text-center(style="width:33%; padding:20px; display:inline-block;")
+                  img.img-responsive(src='../misc/headshots/WillMcInnis.jpg', alt='')
+                  h4
+                     | Will McInnis
+                  small Job Title
+               .col-sm-4New.text-center(style="width:33%; padding:20px; display:inline-block;")
+                  img.img-responsive(src='../misc/headshots/WillMcInnis.jpg', alt='')
+                  h4
+                     | Will McInnis
+                  small Job Title

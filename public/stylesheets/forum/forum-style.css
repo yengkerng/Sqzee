@@ -1,0 +1,388 @@
+@media only screen and (max-width: 800px) {
+   #date-box-holder {
+      width: 0%;
+      display: none;
+   }
+}
+
+@media only screen and (max-width: 875px) {
+   div.sticky{
+      width: 100%;
+      height: 100%;
+      border-radius: 0px;
+      position: static;
+      background-color: red;
+   }
+   div.question{
+      width: 100%;
+      height: 100%;
+      border-radius: 0px;
+      position: static;
+      background-color: blue;
+   }
+   div.comment{
+      width: 100%;
+      height: 100%;
+      border-radius: 0px;
+      position: static;
+      background-color: green;
+   }
+}
+@media only screen and (max-width: 520px) {
+   div.last-reply {
+      display:none;
+   }
+   div.post-info {
+      width: 90%;
+   }
+}
+
+html{
+   height:100%;
+   margin: auto;
+}
+
+body{
+   height: 100%;
+   background-color: #D2DCE0;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+#info-container {
+   padding: 10px;
+   margin: auto;
+   max-width: 1240px;
+   height:100%;
+}
+
+#left {
+   width: 60%;
+   height: 100%;
+
+   display: inline-block;
+   float: left;
+}
+
+#right {
+   width: 40%;
+   height: 100%;
+
+   display: inline-block;
+   float: right;
+}
+
+#calendar {
+   position:relative;
+   right: -10px;
+   top: 10px;
+}
+
+#hub-container {
+   height: auto;
+   border-radius: 5px;
+   padding: 10px;
+}
+
+#events-container {
+   height:auto;
+   border-radius: 5px;
+   padding: 10px;
+}
+
+#misc-topics-container {
+   height: auto;
+   border-radius: 5px;
+   padding: 10px;
+}
+
+.info {
+   height:100%;
+   background-color: #FFFFFF;
+   padding: 10px 10px 10px 10px;
+}
+
+#event.info {
+   padding: 10px 10px 10px 10px;
+}
+
+.title {
+   width: 100%;
+
+   color: #424242;
+   font-size: 18px;
+   font-weight: bold;
+   text-align: center;
+}
+
+/*CSS for misc list*/
+#misc-list{
+  width: 100%;
+  height: 100%;
+
+  list-style-type: none;
+  padding: 0px;
+  margin-top: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+.extra-details {
+   width: inherit;
+   font-size: 14px;
+   font-weight: normal;
+}
+
+.extra-title{
+  width: inherit;
+  font-family: HelveticaNeue,"Helvetica Neue",Helvetica,Arial,sans-serif
+  font-size: 16px;
+  font-weight: bold;
+
+}
+
+.extra-dark{
+   background-color: #F0F0F0;
+   padding:10px
+}
+
+.extra-light{
+   background-color: #E6E6E6;
+   padding:10px
+}
+.extra-author{
+  width: inherit;
+  font-size: 14px;
+  font-weight: normal;
+
+/*  padding: 5px;
+  width: 30%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;*/
+}
+form {
+                width:5000px;
+                align-items: flex-end;;
+                /*margin:50px auto;*/
+}
+
+#misc-topics-container #search {
+                padding:8px 15px;
+                background:rgba(50, 50, 50, 0.2);
+                border:1px solid #dbdbdb;
+                width: 360px;
+                height: 30px;
+                margin-top: 10px;
+                background: #E5E7E9;
+                border: none;
+                font-size: 10pt;
+                color: #000000;
+                font-style: italic;
+                float: left;
+}
+.button {
+                position:relative;
+                padding:5px 10px;
+                margin-top: 9px;
+                left: 3px;
+              /*  border:2px solid #207cca;
+                background-color:#207cca;*/
+                color:#545b60;
+                font-size: 9pt;
+                font-style: bold;
+
+}
+
+.button:hover  {
+                background-color:#fafafa;
+
+}
+
+
+/*CSS for the hub*/
+#hub-list{
+   width: 100%;
+   max-height: 400px;
+
+   list-style-type: none;
+   padding: 0px;
+   margin-top: 10px;
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+#hub-list li{
+   height: 80px;
+   margin: 0px 3px 0px 3px;
+}
+
+.titleContainer {
+   width: 100%;
+   margin: 0px 0px 10px 0px;
+}
+.hubTitle{
+   float:left;
+   width:100%;
+   color: #424242;
+   font-size: 18px;
+   font-weight: bold;
+   text-align: center;
+}
+.addButton{
+   float:right;
+   width:10%;
+   height:20px;
+   width:20px;
+   border-radius: 10px;
+   background-color: green
+}
+.addButton a {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: -5px 0;
+   color: white;
+   font-size: 18px;
+}
+
+.addButton a:hover{
+   text-decoration: none;
+}
+
+#hub-list li:nth-child(even){
+   background-color: #F0F0F0;
+}
+
+#hub-list li:nth-child(odd){
+   background-color: #E6E6E6;
+}
+
+.post-type {
+   width: 10%;
+   height: 100%;
+   float: left;
+   display: inline-block;
+}
+.sticky {
+   width: 30px;
+   height: 30px;
+   border-radius: 15px;
+
+   position: relative;
+   top: 33%;
+   left: 33%;
+
+   background-color: red;
+}
+.question {
+   width: 30px;
+   height: 30px;
+   border-radius: 15px;
+
+   position: relative;
+   top: 33%;
+   left: 33%;
+
+   background-color: blue;
+}
+.comment {
+   width: 30px;
+   height: 30px;
+   border-radius: 15px;
+
+   position: relative;
+   top: 33%;
+   left: 33%;
+
+   background-color: green;
+}
+
+.post-info {
+   padding: 20px 10px 0px 5px;
+   white-space:nowrap;
+   height: 100%;
+   width: 75%;
+   display: inline-block;
+   overflow: hidden;
+}
+.post-name {
+   font-size: 16px;
+   font-weight: bold;
+}
+.post-author {
+   font-size: 12px;
+   font-weight: bold;
+}
+
+.last-reply {
+   padding: 5px;
+   width: 15%;
+   height: 100%;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   float: right;
+}
+
+
+
+
+/*CSS for upcoming events*/
+#date-box-holder {
+   float: left;
+   width: 25%;
+   height: 100%;
+
+   padding: 10px;
+}
+#date-box {
+   width: 100%;
+   height: 100%;
+
+   text-align: center;
+
+   background-color: #FFFFFF;
+   float: left;
+
+   border-style: solid;
+   border-color: black;
+   border-width: 1px;
+
+   overflow: hidden;
+}
+#month {
+   margin-top: 10px;
+
+   color: #AC271F;
+   font-weight: bold;
+   font-size: 18px;
+}
+#day {
+   font-weight: bold;
+   font-size: 22px;
+}
+#description-holder {
+   width: 100%;
+   float: none;
+   padding: 5px 0px 0px 10px;
+}
+#desc-title {
+   width: inherit;
+   font-size: 16px;
+   font-weight: bold;
+}
+#desc-time {
+   width: inherit;
+   font-size: 12px;
+   font-weight: bold;
+}
+#desc-details {
+   width: inherit;
+   font-size: 14px;
+   font-weight: normal;
+}

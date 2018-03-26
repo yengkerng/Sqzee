@@ -1,0 +1,13 @@
+var express = require('express');
+var router = express.Router();
+
+var bodyParser = require('body-parser');
+
+router.use(bodyParser.json());
+
+router.get('/', function(request, response) {
+  console.log("A user made a request... " + request.url);
+  response.render('pages/test/test');
+});
+
+module.exports = router;

@@ -1,0 +1,432 @@
+html
+   head
+      title= user.name + " - Hub"
+      include ./../../partials/header.pug
+      link(href="/stylesheets/hub/hub.css", rel='stylesheet', type='text/css')
+      link(href="/stylesheets/notloggedin/loginredirect.css", rel='stylesheet', type='text/css')
+      script(type='text/javascript', src='/scripts/hub/hubInteract.js')
+      script(type='text/javascript', src='/scripts/hub/classCalculator.js')
+
+
+   body
+      - if (loggedIn){
+          include ./../../partials/navBarDynamic.pug
+          .headContainer
+             .leftPortion
+                .imageContainer
+                     img#imgCircle(style="background-image:url("+user.picture+");")
+                     //img#imgCircle(src="misc/hubPictures/yeng-tan-profile.jpg")
+             .rightPortion
+                .welcomeArea
+                   span#welcomeText Welcome,
+                   span#personName= " " + user.name
+                   span#welcomeText !
+                .universityArea
+                   span#universityText= user.education.school
+                .majorArea
+                   span#majorText= user.education.major
+                   - if (user.education.major != undefined && user.education.gradDate != undefined) {
+                      = ", "
+                   - }
+                   span#yearTest= user.education.gradDate
+
+
+
+          //ul.nav.nav-tabs.mainNav
+             //li#announcement.active(role="presentation")
+                //a(href="#announcement") Announcements
+             //li#home.active(role="presentation")
+                //a(href="#home") Home
+             //li#scheduling(role="presentation") **** FOR AFTER LAUNCH
+                //a(href="#scheduling") Scheduling
+             //li#groups(role="presentation")
+             //    a(href="#groups") Settings
+          .headLine
+           #newsFeed News Feed
+          .hr
+          .generalFeedContainer
+           .br
+
+               for x in events.reverse()
+                - var condition;
+                - var link = x.event_url
+                - var picture = x.picture
+                - var name = x.name
+                - var tmp
+
+                - if(x.anonymous == true ) {
+                  - picture = "https://image.flaticon.com/icons/svg/1/1954.svg"
+                  - name = "Anonymous"
+                -}
+                - if (x.event_type == "review_post") {
+                  - condition = "posted a new class review ";
+                  - tmp = x.event_url.slice(28,36)
+
+                - } else if (x.event_type == "class_forum_post") {
+                  - condition = "started a new post on the class forum ";
+                  - tmp = "Go to Class"
+
+                - } else if (x.event_type === "class_forum_reply") {
+                  - condition = "replied to a post on the class forum ";
+                  - tmp = "Go to Class"
+
+                - } else if (x.event_type === "class_forum_vote") {
+                  - condition = "voted on a class forum post ";
+                  - tmp = "Go to Class"
+
+                - } else if (x.event_type === "general_forum_post") {
+                  - condition = "posted a new event on the events forum ";
+                  - tmp = "Go to Event"
+
+                - } else if (x.event_type === "general_forum_vote") {
+                  - condition = "voted on a post in the events forum ";
+                  - tmp = "Go to Event"
+
+                - } else if (x.event_type === "professor_review") {
+                  - condition = "posted a new professor review ";
+                  - tmp = x.event_url.slice(22)
+                - }
+
+                .media
+                  .media-left
+                     a(href='#')
+                        img.media-object(src=picture)
+                  .media-body
+                     .media-heading
+                        span#linkItem= name
+                        = " " + condition
+                        //span#linkItem CPE 305
+                        br.
+                        a(href=link)#linkItem= tmp
+                        .br
+                        span#timePosted= x.created
+                     .newsFeedContent
+
+          .verticalLine
+          section.lowerSection
+             .enrolledClassesContainer
+                ul.nav.nav-tabs.classLists
+                   li#current.active(role="presentation")
+                      a.classSelect(data-toggle="pill" href="#currentClasses") Current Classes
+                   li#previous(role="presentation")
+                      a.classSelect(data-toggle="pill" href="#calculator") Grade Calculator
+                .tab-content
+                   .tab-pane.fade.in.active#currentClasses
+                      .header Winter 2017
+                      table.tableStyle
+                         thead
+                         tbody
+                            each enClass in enrolledClasses
+                               tr
+                                  td.yourEnrolledClass
+                                     a(href="/class/" + enClass.department + "-" + enClass.courseNum)
+                                        span.classCode
+                                           | #{enClass.department + ' ' + enClass.courseNum}
+                                        span.className
+                                           | #{' | ' + enClass.name}
+                                  td.friendsInClass
+
+                                  td.enrollmentOptions
+                                     include ./enrolledClassOptions.pug
+
+                      .buttonContainer
+                         a.ui.button#addClass
+                            span#addClassText Add Class
+
+
+
+                         .addClassSearchContainer
+                            form.ui.form#addClassSearch(action='/search/' method='post' style="font-size:14px;")
+                               .input-group
+                                  input.form-control(id="search" type="text" placeholder="Search for classes or professors here..." name="query")
+                                  span.input-group-btn
+                                     button.btn.btn-default(type="submit") Search
+
+
+                   .tab-pane.fade#calculator
+                       form(name='GradeGPA', action='')
+                        table(width='500px', border='0', align='center', cellpadding='2', cellspacing='0')
+                         // Row 1
+                         tr(bgcolor='white')
+                           td(colspan='12', align='center')
+                             h2
+                               | GPA Calculator
+                             br
+                         // Row 2
+
+                         tr(bgcolor="white")
+                           td(colspan='2', align='center')
+                           td(colspan='2', align='center')
+                             | Units Graded
+                           td(colspan='2', align='center')
+                             | GPA on a 4.0 scale
+
+                         // SPACING ENDS
+                         tr(bgcolor='white')
+                          td(colspan='2', align='center')
+                          td(colspan='2', align='center')
+                           input(size='5', name='overallUnits', defaultvalue='80')
+                          td(colspan='2', align='center')
+                           input(size='5', name='overallGPA', defaultvalue='80')
+
+                         // FOR SPACING
+                         tr(bgcolor="white")
+                           td(colspan='2', align='center')
+                           td(colspan='2', align='center')
+                             br
+                           td(colspan='2', align='center')
+                         // SPACING ENDS
+
+                         tr(bgcolor='white')
+                          td(colspan='2', align='center')
+                           |
+                          td(colspan='2', align='center')
+                           | Units
+                          td(colspan='2', align='center')
+                           | High Grade
+                          td(colspan='2', align='center')
+                           | Low Grade
+
+
+
+                         tr(bgcolor='white')
+                           td(colspan='2', align='center')
+                             p1 Class 1
+                           td(colspan='2', align='center')
+                              input(size='5', name='units1', defaultvalue='80')
+                           td(colspan='2', align='center')
+                             select(name='gradeHigh1')
+                              option(value='4') A
+                              option(value='3.7') A-
+                              option(value='3.3') B+
+                              option(value='3') B
+                              option(value='2.7') B-
+                              option(value='2.3') C+
+                              option(value='2') C
+                              option(value='1.7') C-
+                              option(value='1.3') D+
+                              option(value='1') D
+                              option(value='0.7') D-
+                              option(value='0') F
+                           td(colspan='2', align='center')
+                             select(name='gradeLow1')
+                              option(value='0') F
+                              option(value='0.7') D-
+                              option(value='1') D
+                              option(value='1.3') D+
+                              option(value='1.7') C-
+                              option(value='2') C
+                              option(value='2.3') C+
+                              option(value='2.7') B-
+                              option(value='3') B
+                              option(value='3.3') B+
+                              option(value='3.7') A-
+                              option(value='4') A
+
+                         tr(bgcolor='white')
+                           td(colspan='2', align='center')
+                             p1 Class 2
+                           td(colspan='2', align='center')
+                              input(size='5', name='units2', defaultvalue='80')
+                           td(colspan='2', align='center')
+                             select(name='gradeHigh2')
+                              option(value='4') A
+                              option(value='3.7') A-
+                              option(value='3.3') B+
+                              option(value='3') B
+                              option(value='2.7') B-
+                              option(value='2.3') C+
+                              option(value='2') C
+                              option(value='1.7') C-
+                              option(value='1.3') D+
+                              option(value='1') D
+                              option(value='0.7') D-
+                              option(value='0') F
+                           td(colspan='2', align='center')
+                             select(name='gradeLow2')
+                              option(value='0') F
+                              option(value='0.7') D-
+                              option(value='1') D
+                              option(value='1.3') D+
+                              option(value='1.7') C-
+                              option(value='2') C
+                              option(value='2.3') C+
+                              option(value='2.7') B-
+                              option(value='3') B
+                              option(value='3.3') B+
+                              option(value='3.7') A-
+                              option(value='4') A
+
+                         tr(bgcolor='white')
+                           td(colspan='2', align='center')
+                             p1 Class 3
+                           td(colspan='2', align='center')
+                              input(size='5', name='units3', defaultvalue='80')
+                           td(colspan='2', align='center')
+                             select(name='gradeHigh3')
+                              option(value='4') A
+                              option(value='3.7') A-
+                              option(value='3.3') B+
+                              option(value='3') B
+                              option(value='2.7') B-
+                              option(value='2.3') C+
+                              option(value='2') C
+                              option(value='1.7') C-
+                              option(value='1.3') D+
+                              option(value='1') D
+                              option(value='0.7') D-
+                              option(value='0') F
+                           td(colspan='2', align='center')
+                             select(name='gradeLow3')
+                              option(value='0') F
+                              option(value='0.7') D-
+                              option(value='1') D
+                              option(value='1.3') D+
+                              option(value='1.7') C-
+                              option(value='2') C
+                              option(value='2.3') C+
+                              option(value='2.7') B-
+                              option(value='3') B
+                              option(value='3.3') B+
+                              option(value='3.7') A-
+                              option(value='4') A
+
+                         tr(bgcolor='white')
+                           td(colspan='2', align='center')
+                             p1 Class 4
+                           td(colspan='2', align='center')
+                              input(size='5', name='units4', defaultvalue='80')
+                           td(colspan='2', align='center')
+                             select(name='gradeHigh4')
+                              option(value='4') A
+                              option(value='3.7') A-
+                              option(value='3.3') B+
+                              option(value='3') B
+                              option(value='2.7') B-
+                              option(value='2.3') C+
+                              option(value='2') C
+                              option(value='1.7') C-
+                              option(value='1.3') D+
+                              option(value='1') D
+                              option(value='0.7') D-
+                              option(value='0') F
+                           td(colspan='2', align='center')
+                             select(name='gradeLow4')
+                              option(value='0') F
+                              option(value='0.7') D-
+                              option(value='1') D
+                              option(value='1.3') D+
+                              option(value='1.7') C-
+                              option(value='2') C
+                              option(value='2.3') C+
+                              option(value='2.7') B-
+                              option(value='3') B
+                              option(value='3.3') B+
+                              option(value='3.7') A-
+                              option(value='4') A
+
+                         tr(bgcolor='white')
+                           td(colspan='2', align='center')
+                             p1 Class 5
+                           td(colspan='2', align='center')
+                              input(size='5', name='units5', defaultvalue='80')
+                           td(colspan='2', align='center')
+                             select(name='gradeHigh5')
+                              option(value='4') A
+                              option(value='3.7') A-
+                              option(value='3.3') B+
+                              option(value='3') B
+                              option(value='2.7') B-
+                              option(value='2.3') C+
+                              option(value='2') C
+                              option(value='1.7') C-
+                              option(value='1.3') D+
+                              option(value='1') D
+                              option(value='0.7') D-
+                              option(value='0') F
+                           td(colspan='2', align='center')
+                             select(name='gradeLow5')
+                              option(value='0') F
+                              option(value='0.7') D-
+                              option(value='1') D
+                              option(value='1.3') D+
+                              option(value='1.7') C-
+                              option(value='2') C
+                              option(value='2.3') C+
+                              option(value='2.7') B-
+                              option(value='3') B
+                              option(value='3.3') B+
+                              option(value='3.7') A-
+                              option(value='4') A
+
+                         tr(bgcolor='white')
+                           td(align='center')  
+                         tr(bgcolor='white')
+                           td(colspan='4', align='center')
+                             .buttonContainer
+                              a.ui.button#calculateGPA Calculate
+                           td(colspan='4', align='center')
+                             .buttonContainer
+                              input(type='reset', name='OverallReset', value='Reset form')
+
+                         tr(bgcolor='white')
+                           td(colspan='3', align='center')  
+                         tr(bgcolor='white')
+                           td(colspan='3', align='center') Total Units
+                           td(colspan='3', align='center') GPA High
+                           td(colspan='3', align='center') GPA Low
+
+                         tr(bgcolor='white')
+                           td(colspan='3', align='center')
+                             input(size='5', name='totalUnits', defaultvalue='')
+                           td(colspan='3', align='center')
+                             input(size='5', name='gpaHigh', defaultvalue='')
+                           td(colspan='3', align='center')
+                             input(size='5', name='gpaLow', defaultvalue='')
+                         tr(bgcolor='white')
+                           td(colspan='3', align='center')  
+
+
+      - }else{
+          include ./../../partials/navBarStatic.pug
+
+          //.header News Feed
+          .generalFeedContainer
+             div.newsFeedContainer2
+                img(src='misc/hubtease.png' width="100%" height="100%")
+             #inDevMessage
+                a(href="/auth/facebook/")
+                   button.btn.btn-social.btn-facebook(type="button")
+                      span.fa.fa-facebook
+                      | Sign in with Facebook
+                br
+                br
+                #comingSoon Please Login to Continue
+      - }
+
+
+
+
+
+   script.
+      $(document).ready(
+
+         function() {
+            var desiredTab, desiredContent;
+            desiredTab = $(".classSelect a");
+            desiredTab.on('click', function(e) {
+               desiredContent = $(this).attr("href");
+               $(".classArea" + desiredContent).show().siblings().hide();
+
+               $(this).addClass("active").siblings().removeClass("active");
+
+               e.preventDefault(e);
+            });
+         }
+
+      );
+
+   footer
+      include ./../../partials/footer.pug
+   script(type='text/javascript', src='/scripts/jquery.cycle.all.2.74.js')
+   script(type='text/javascript', src='/scripts/slideshow.js')

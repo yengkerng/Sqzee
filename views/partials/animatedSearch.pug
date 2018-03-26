@@ -1,0 +1,30 @@
+doctype html
+html
+   link(rel='stylesheet', type='text/css', href='/semantic/out/components/button.min.css')
+   link(href='/stylesheets/index/frontPage.css', rel='stylesheet')
+
+   head
+
+   body
+
+         form(action='/search/', method='post',style = 'width:90%')
+            input(id='search' type="text" placeholder="Search for classes or professors here..." name="query" onfocus="this.placeholder =''")
+            br
+            br
+            button.ui.large.olive.submit.button#searchButton Search
+
+         div.buttonsContainer
+            - if (loggedIn) {
+              form#hubButton(action="/hub", method='get')
+                 button.ui.blue.submit.button#hub Hub
+            -} else {
+              form#hubButton(action="/auth/facebooknoredirect", method='get')
+                 button.ui.left.blue.submit.button#hub Login
+                 span#loginHover
+                    div.popupText Connect with friends, we will never post to Facebook!
+            -}
+
+            form#forumButton(action="/general-forum", method='get')
+               button.ui.teal.submit.button#forum Events
+               span#forumHover
+                  div.popupText See what's happening around campus!

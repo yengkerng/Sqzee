@@ -1,0 +1,52 @@
+#contain {
+   margin-top: 20px;
+   height: auto;
+   width: 100%;
+   background: #FFFFFF;
+   display: inline-block;
+}
+
+.table {
+   height: auto;
+   border-radius: 15px;
+   padding: 10px;
+}
+
+.title {
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.table th {
+  background: white;
+}
+
+.table tr:nth-child(even) {
+   background: #ffe0cc;
+}
+
+.table tr:nth-child(odd) {
+   background: #ffb380;
+}
+
+.class {
+  padding: 10px;
+  width: 30%;
+}
+
+.difficulty {
+  padding: 10px;
+  width: 10%;
+  text-align: center;
+}
+
+.time {
+  padding: 10px;
+  text-align: center;
+  white-space: nowrap;
+  width: 50%;
+}
+
+.hours {
+  font-weight: lighter;
+}

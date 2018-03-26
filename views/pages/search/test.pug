@@ -1,0 +1,11 @@
+html
+   head
+      title Search 2.0 Practice Area
+      include ./../../partials/header.pug
+   body
+      form(action='/search/', method='post')
+        | Type in your test search here:
+        input(type='text', name='query')
+        input(type='submit', value='Submit')
+
+      p This search was written by Shane K. on August 14th, 2016 when he was hyped on Red Bull and Adderall.

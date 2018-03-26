@@ -1,0 +1,454 @@
+html
+   head
+      title= classObj.department + " " + classObj.courseNum + " - " + classObj.name
+      include ./../../partials/header.pug
+      script(type='text/javascript', src='/scripts/class/classPageInteract.js')
+      link(href="/stylesheets/classes/classStyle.css", rel='stylesheet', type='text/css')
+      link(href="/stylesheets/test/grading.css", rel='stylesheet', type='text/css')
+
+   body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+      section.headContainer
+         .classNameContainer
+            .headerStyle
+               span#courseInfo
+                  classTitle= classObj.department + " " + classObj.courseNum
+               span#descriptiveName
+                  className= " " + classObj.name
+            .buttonContainer
+              div#commentSectionContainer
+
+         .classRatingContainer
+            - var timeHigh = 0;
+            - var timeLow = 0;
+            - var count = 0;
+            #leftSide
+              .buttonContainer
+                 -if (loggedIn) {
+                    //for enClass in enrolledClasses
+                       //- if (enClass.department == classObj.department && enClass.courseNum == classObj.courseNum) {
+                    -if (!userIsEnrolled) {
+                       a.ui.button#enroll(href="/enroll/" + classObj.department + "-" + classObj.courseNum)
+                          span#enrollText ENROLL
+                    -} else {
+                       a.ui.button#enrolled(href="/enroll/" + classObj.department + "-" + classObj.courseNum + "/unenroll")
+                          span#dropText ENROLLED!
+                    -}
+                 -} else {
+                    a.ui.button#notLoggedEnroll(href="/auth/facebook/")
+                       span#dropText LOG IN TO ENROLL...
+                 -}
+
+      div.navCotent
+        ul.nav.nav-tabs.mainNav
+
+         li.active
+             a(href="#description" data-toggle="tab") Description
+         li
+             a(href="#reviews" data-toggle="tab") Reviews
+         li
+             a(href="#forum" data-toggle="tab") Forum
+
+         div.tab-content
+           #description.tab-pane.fade.in.active
+               //p 1
+           #reviews.tab-pane.fade
+               //p 2
+           #forum.tab-pane.fade
+
+
+      section.reviewSection
+        .descriptionContainer
+           - var timeHigh = 0;
+           - var timeLow = 0;
+           - var count = 0;
+              .quickRatingHeader Unit(s):
+                 span#rating= classObj.units
+              - if (classObj.ge != "") {
+                 .quickRatingHeader GE:
+                    span#rating= classObj.ge
+              - }
+
+              .quickRatingHeader Average Ratings:
+                 - if (profList.length != 0) {
+                    - var tmp = 0;
+
+                    each prof in profList
+                       - if (prof.name.split("_")[0] != "STAFF") {
+                          - tmp += prof.polyRating;
+                          - if (prof.polyRating != 0) {
+                            - count += 1;
+                          -}
+                       - }
+                 - } tmp = ((tmp/count) * 2.5).toFixed(2);
+                 - timeLow = ((tmp) - (tmp)/2).toFixed(0);
+                 - timeHigh = (timeLow * (3));
+
+                 - if (count == 0){
+                    span#rating NEW
+                 - } else {
+                    span#rating= tmp
+                    span#placeholder /10
+                 - }
+
+              .quickRatingHeader Estimated Time:
+                 - if (count == 0){
+                    span#rating NEW
+                 - } else {
+                    span#rating= timeLow + " - " + timeHigh
+                    span#placeholder hrs/week
+                 - }
+        a.list-group-item.forumPostHeader(href="#dropdownArea" data-toggle="collapse")
+           p#postNewReview Post a new topic...
+           i.fa.fa-caret-down
+        .collapse#dropdownArea
+           - if (loggedIn) {
+           .outsideForm
+               form(id="newForumPost")
+               fieldset.form-group
+                   .col-xs-8#removeRightPadding
+                       input.form-control.form-control-lg(name="postTitle" type="text" form="newForumPost" placeholder="Topic Title..." required)
+                   .col-xs-4
+                       select.form-control.form-control-lg(name="typeOfPost" form="newForumPost" required)
+                           option(value="") Post Type
+                           option(value="question") Question
+                           option(value="discussion") Discussion
+                           option(value="important") Important
+
+               fieldset.form-group
+                   .col-xs-12
+                       textarea.form-control(name="content" form="newForumPost" placeholder="Discuss, explain, or ask about your topic here..." required)
+
+               fieldset.form-group
+                   button.btn.btn-primary(type="submit" form="newForumPost") Submit
+                   input#anonymousPost(name="anon" form="newForumPost" type="checkbox" tabindex="0")
+                   label#checkboxAnon(for="anonymousPost") Be Anonymous?
+           - } else {
+           .outsideForm
+            a#logInText(href="/auth/facebook/")
+             | Log In With Facebook To Post to this Class
+           - }
+
+        each post in forumPosts
+           li.list-group-item.forumPostBody
+              .title
+                 .right
+                    .timeStamp= post.timeAgo
+                 .left
+                    img#icon(src="/misc/forum/" + post.type + ".png")
+                 a.titleForForum(href="#")= post.title
+                 .br
+                 //href="/forum/" + classObj.department + '-' + classObj.courseNum + "/" + post._id
+                 - if (post.facebookProfileUrl != "anon") {
+                   .postAuthorPic
+                     img.resize(src=post.facebookProfileUrl)
+
+                   .nameForForum= " - " + post.author
+                 - } else {
+                   .nameForForum= post.author
+                 - }
+                 .postContent= post.mainText
+                 .postId= post._id
+
+           //.replyTo
+            //.postId= post._id
+            //form#replyFormArea(action='/forum/'+classObj.department + "-" + classObj.courseNum + '/' + post._id + '/reply' method='post')
+                //textarea.form-control#replyText(name="comment" form="replyFormArea" placeholder="Leave a thoughtful reply here...")
+                //button.btn.btn-primary#replySubmit(type="submit" form="replyFormArea") Submit Your Reply
+                //p#anonTextWarning FYI: You can not reply anonymously!
+            //div#commentSectionContainer
+
+            //.postButtons
+              a.report#main(href="#") Report
+              - if (loggedIn) {
+                  a.reply#main(href="#" onclick="document.getElementsByClassName('replyTo')[0].id = 'show';") Reply
+              - } else {
+                  p.reply#main Log In to Reply
+              - }
+
+        .loadingGif
+        .professorContainerForReviews
+           div.sectionHeader Name
+           .forum#classReviewForum
+            ul.list-group#reviewsContainer
+               a.list-group-item.classPost(href="#dropdownforClass" data-toggle="collapse")
+                  p#postNewReview Post a new review...
+                  i.fa.fa-caret-down
+               .collapse#dropdownforClass
+                  -if (loggedIn){
+                  .outsideFormForProfessor
+                     form.newForumPostContiner(id="newClassPost" action='/class/' + classObj.department + '-' + classObj.courseNum + '/postReview' method='post')
+                        fieldset.form-group
+                        fieldset.form-group
+
+                           .col-xs-6#removeRightPadding
+                              select.form-control.form-control-lg(name="difficulty" form="newClassPost" required)
+                                 option(value="") Professor Rating
+                                 option(value="1") 1
+                                 option(value="2") 2
+                                 option(value="3") 3
+                                 option(value="4") 4
+                                 option(value="5") 5
+                                 option(value="6") 6
+                                 option(value="7") 7
+                                 option(value="8") 8
+                                 option(value="9") 9
+                                 option(value="10") 10
+
+                           .col-xs-6#hoursField
+                              select.form-control.form-control-lg(name="hrsPerWeek" form="newClassPost" required)
+                                 option(value="") Hours per Week
+                                 option(value="0") 0
+                                 option(value="1") 1
+                                 option(value="2") 2
+                                 option(value="3") 3
+                                 option(value="4") 4
+                                 option(value="5") 5
+                                 option(value="6") 6
+                                 option(value="7") 7
+                                 option(value="8") 8
+                                 option(value="9") 9
+                                 option(value="10") 10
+                                 option(value="11") 11
+                                 option(value="12") 12
+                                 option(value="13") 13
+                                 option(value="14") 14
+                                 option(value="15") 15
+                                 option(value="16") 16
+                                 option(value="17") 17
+                                 option(value="18") 18
+                                 option(value="19") 19
+                                 option(value="20") 20
+                                 option(value="21") 21
+                                 option(value="22") 22
+                                 option(Value="23") 23
+                                 option(value="24") 24
+
+                        fieldset.form-group
+                           .col-xs-4#removeRightPadding
+                              select.form-control.form-control-lg(name="rating" form="newClassPost" required)
+                                 option(value="") Rating Out of 4.0
+                                 option(value="4.0") 4.0
+                                 option(value="3.75") 3.75
+                                 option(value="3.5") 3.5
+                                 option(value="3.25") 3.25
+                                 option(value="3.0") 3.0
+                                 option(value="2.75") 2.75
+                                 option(value="2.5") 2.5
+                                 option(value="2.25") 2.25
+                                 option(value="2.0") 2.0
+                                 option(value="1.75") 1.75
+                                 option(value="1.5") 1.5
+                                 option(value="1.25") 1.25
+                                 option(value="1.0") 1.0
+                                 option(value="0.75") 0.75
+                                 option(value="0.5") 0.5
+                                 option(value="0.25") 0.25
+                                 option(value="0.0") 0.0
+
+                           .col-xs-4#removeRightPadding
+                              select.form-control.form-control-lg(name="grade" form="newClassPost" required)
+                                 option(value="") Grade Received
+                                 option(value="A") A
+                                 option(value="A-") A-
+                                 option(value="B+") B+
+                                 option(value="B") B
+                                 option(value="B-") B-
+                                 option(value="C+") C+
+                                 option(value="C") C
+                                 option(value="C-") C-
+                                 option(value="D+") D+
+                                 option(value="D") D
+                                 option(value="D-") D-
+                                 option(value="F") F
+                                 option(value="N/A") N/A
+
+                           .col-xs-4
+                              select.form-control.form-control-lg(name="reviewProfessor" form="newClassPost" required)
+                                 option(value="") Professor
+                                 each profObj in profList
+                                    option(value="" + profObj.name)= profObj.name
+
+
+                        fieldset.form-group
+                           .col-xs-12
+                              textarea.form-control(name="review" form="newClassPost" placeholder="Review here..." required)
+
+                        fieldset.form-group
+                           button.btn.btn-primary(type="submit" form="newClassPost") Submit
+                           input#anonymousPost(name="anon" form="newClassPost" type="checkbox" tabindex="0" checked)
+                           label#checkboxAnon(for="anonymousPost") Be Anonymous?
+                  - } else {
+                     a#logInText(href="/auth/facebook/")
+                        | Log In With Facebook To Review This Class
+                  - }
+        .descriptionContainer
+           div.sectionHeader Description
+           p.sectionBody
+              = classObj.description
+        .descriptionContainer
+          div.facebookFriendsContainer
+             div.sectionHeader#facebookHeader Facebook Friends
+             - if (loggedIn) {
+                - if (facebookFriends.length != 0) {
+                   div.facebookProfilesContainer
+                      table.profileTable
+                         tbody#facebookFriendsBody
+                - } else {
+                      span#noFriendsText
+                         | No Facebook friends are currently enrolled.
+                - }
+             - } else{
+                   span#noProfileMessage
+                      | Connect to Facebook to see friends in this class!
+             - }
+             div.seeMoreFriendsContainer
+                | Show more...
+          a.list-group-item.CalculatorPostHeader(href="#dropdown" data-toggle="collapse")
+             p#postNewReview Class grade calculator...
+             i.fa.fa-caret-down
+          .collapse#dropdown
+             form(name='GradeCalc', action='')
+              table(width='500', border='0', align='center', cellpadding='2', cellspacing='0')
+               // Row 1
+               tr(bgcolor='white')
+                 td(colspan='3', align='center')
+                   h2
+                     | Weighted Average Grade Calculator
+                   br
+               // Row 2
+
+
+               tr(bgcolor='white')
+                td(align='center')
+                td(align='center')
+                 | Grade
+                 br
+                td(align='center')
+                 | Percentage of Course Grade
+                 br
+
+
+               // Row 3
+               // Row 4
+               tr(bgcolor='white')
+                 td(align='center')
+                   p1 Quizzes
+                 td(align='center')
+                   input(size='5', name='Grade1', defaultvalue='80', placeholder="90")
+                 td(align='center')
+                   input(size='5', name='Percent1', defaultvalue='10%', placeholder="10%")
+               tr(bgcolor='white')
+                 td(align='center')
+                   p1 Homework
+                 td(align='center')
+                   input(size='5', name='Grade2', defaultvalue='95', placeholder="85")
+                 td(align='center')
+                   input(size='5', name='Percent2', defaultvalue='10%', placeholder="10%")
+
+               tr(bgcolor='white')
+                 td(align='center')
+                   p1 Midterm 1
+                 td(align='center')
+                   input(size='5', name='Grade3', defaultvalue='80', placeholder="75")
+                 td(align='center')
+                   input(size='5', name='Percent3', defaultvalue='25%', placeholder="22.5%")
+
+               tr(bgcolor='white')
+                 td(align='center')
+                   p1 Midterm 2
+                 td(align='center')
+                   input(size='5', name='Grade4', defaultvalue='75', placeholder="92")
+                 td(align='center')
+                   input(size='5', name='Percent4', defaultvalue='25%', placeholder="22.5%")
+
+               tr(bgcolor='white')
+                 td(align='center')
+                   p1 Final
+                 td(align='center')
+                   input(size='5', name='Grade5', defaultvalue='90', placeholder="83")
+                 td(align='center')
+                   input(size='5', name='Percent5', defaultvalue='30%', placeholder="35%")
+
+               tr(bgcolor='white')
+                 td(align='center')
+                    p1 Extra Credit
+                 td(align='center')
+                   input(size='5', name='Grade6', defaultvalue='', placeholder="100")
+                 td(align='center')
+                   input(size='5', name='Percent6', defaultvalue='', placeholder="2%")
+
+               // Row 14
+               tr(bgcolor='white')
+                 td(colspan='3', align='center')
+               // Row 15
+               tr(bgcolor='white')
+                 td(colspan='2', align='center')
+                   .buttonContainer
+                    a.ui.button#calculate Calculate
+                 td(colspan='2', align='center')
+                   .buttonContainer
+                    input(type='reset', name='OverallReset', value='Reset form')
+               // Row 16
+               tr(bgcolor='white')
+                 td(colspan='3', align='center')
+               // Row 17
+               tr(bgcolor='white')
+                 td(colspan='2', align='center') Total Percent Listed
+                 td(colspan='2', align='center') Course Average
+               // Row 18
+               tr(bgcolor='white')
+                 td(colspan='2', align='center')
+                   input(size='5', name='TotalPercent', defaultvalue='', placeholder="100%")
+                 td(colspan='2', align='center')
+                   input(size='5', name='Grade', defaultvalue='', placeholder = "86.1%")
+               // Row 19
+               tr(bgcolor='white')
+                 td(colspan='3', align='center')
+
+
+
+      div.classSideBar
+        div.sectionHeader#classes Professors
+        div.professorList
+          //div.sectionHeader#classes Professors
+          div.table_container
+             table.table_style
+                tbody
+                   - if (profList.length != 0) {
+                      each prof in profList
+                         - if (prof.name.split("_")[0] != "STAFF") {
+
+                            tr
+                               td.professor_pic
+                               td.proffesor_info
+                                     a(href="/professor/" + prof._id).professor_name#class= prof.name
+                                     - if (prof.actualRating != 0) {
+                                         span.professorRating= prof.actualRating
+                                     - } else {
+                                     - if (prof.polyRating == 0) {
+                                         span.professorRating= "None"
+                                     - } else {
+                                         span.professorRating= prof.polyRating
+                                     - }
+                                     - }
+
+                                     br
+                                     span.professorDepartment= prof.department
+                                     td.rating_column
+                         - }
+                   - } else {
+                      div.noProfContainer
+                         span#noProfileMessage
+                            | All sections are specified as STAFF
+                   - }
+
+
+      script(type='text/javascript', src='/scripts/class/classPageInteract.js')
+   footer
+      include ./../../partials/footer.pug

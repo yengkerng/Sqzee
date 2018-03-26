@@ -1,0 +1,130 @@
+#container {
+   margin-top: 20px;
+   height: auto;
+   width: 100%;
+   background: #FFFFFF;
+   display: inline-block;
+
+}
+
+.img-circle {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+
+thead {
+   border-bottom: 5px;
+}
+
+tr {
+   text-align: left;
+}
+
+td {
+   padding-top: 10px;
+}
+
+table {
+   width: 100%;
+   /*border-style: solid;*/
+}
+
+
+
+.professor_pic {
+   padding: 20px 10px 10px;
+}
+
+.professor_depart {
+   font-weight: lighter;
+}
+
+.rating_column {
+   padding-right: 10px;
+}
+
+
+.headerText {
+   font-size: 18px;
+   font-weight: bold;
+   text-align: center;
+   /*padding: 5px;*/
+   color: #424242;
+   background-color: white;
+}
+
+.table_container {
+   height: auto;
+   border-radius: 5px;
+   padding: 10px;
+   /*margin-top: 50px;
+   margin-left: auto;
+   margin-right: auto;*/
+}
+
+.table_style {
+   /*width: 100%;*/
+   /*border-style: solid;*/
+   border-collapse: collapse;
+}
+
+.grading_table td {
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+
+.grading_table img {
+   width: 30px;
+   height: 30px;
+   border-radius: 70%;
+}
+
+
+
+.table_style tr:not(:last-child) {
+   border-bottom: 1px solid rgba(34,36,38,0.15);
+}
+
+.professor_name#class {
+   font-weight: bolder;
+   color: #FE731B;
+}
+
+.professor_name#class:hover {
+   color: #FE924D;
+}
+
+.professorRating {
+  font-family: "Trebuchet MS";
+  font-weight: normal;
+  font-size: 15px;
+  position: relative;
+  color: black;
+  /*text-align: right*/
+  float: right;
+  margin-right: 10%;
+  padding-top: 10px;
+}
+
+.professorDepartment {
+  position: relative;
+  font-size: 13px;
+  top: 10%;
+  text-align: left;
+  font-weight: bolder;
+
+  /*text-align: center;*/
+  /*text-justify: inter-word;*/
+  color: #000;
+}
+
+
+.proffesor_info {
+   padding-bottom: 10px;
+}
+
+.ratingPlaceholder {
+   padding-top: 10px;
+}

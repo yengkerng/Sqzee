@@ -1,0 +1,149 @@
+html
+   head
+      title Search Results
+      include ./../../partials/header.pug
+      link(href="/stylesheets/classes/classList.css", rel='stylesheet', type='text/css')
+      script(type='text/javascript', src='/scripts/search/searchList.js')
+      script(type='text/javascript', src='/scripts/listSort/listSort.js')
+      script(type='text/javascript', src='/scripts/class/classListInteract.js')
+   body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+    section.titleContainer
+      div.title
+          | Search Results:
+          query= query
+      div.buttonWrapper.text-center#sortButtonWrapper
+         span#sortHeader sort by:
+         div.btn-group.btn-group-xs(role='group', aria-label='Basic example')
+            button.btn.btn-secondary#sortLastName(type='button') Last Name
+            button.btn.btn-secondary#sortRating(type='button') Rating
+            button.btn.btn-secondary#sortDepartment(type='button') Department
+    div.container#body
+      div.table_container
+
+         table.table_style
+           tbody#listClassContents
+              // for classes you're enrolled in
+           - if (loggedIn == true) {
+
+              tr.columHeaders
+                   th.addingHeader
+                   th.searchHeader
+                      | Enrolled Classes
+                   th.unitsHeader
+                      | Units
+
+                      each tmp in enrolledList
+                         tr.oneClassRow
+                            td.addingColumn
+                               .ui.move.reveal
+                                 //.visible.content
+                                 a(href="/enroll/" + tmp.department + "-" + tmp.courseNum + "/unenroll")
+                                    img.ui.small.image#deleteicon(src='/misc/deleteicon.png' style="min-width:22px; max-width:22px;")
+
+                            td.searchColumn
+                               ui.relaxed.divided.list
+                                 .item
+                                   .content
+                                      a(href="/class/" + tmp.department + "-" + tmp.courseNum).professor_name= tmp.department + " " + tmp.courseNum
+                               span.professor_depart= tmp.name
+
+                               td.unitsColumn
+                                  = tmp.units
+
+           - }
+
+         hr
+         table.table_style#professorResults
+          tbody#listProfessorContents
+             tr.columHeaders
+                th.addingHeader
+                th.searchHeader
+                   | Professors
+                th.detailColumnHeader
+                   | Average Rating
+             each obj in objs
+                - if (obj.type == 'professor' && obj.obj.name.slice(0,5) != "STAFF") {
+                   tr
+                      td.addingColumn
+                        //- if (obj.type == 'class') {
+                           img(src='/misc/addIcon3.png',width='25px')
+                        //- }
+                      td.searchColumn
+                         ui.relaxed.divided.list
+                           .item
+                             .content
+                                a(href="/professor/" + obj.obj._id).professor_name= obj.obj.name
+                         p.professor_depart= obj.obj.department
+                      td.ratingColumn
+                         = obj.obj.polyRating
+                         //span.professorRating= professor.rating
+
+                - }
+
+      section.classTitleContainer
+         div.buttonWrapper.text-center#sortButtonWrapper
+            span#sortHeader sort by:
+            div.btn-group.btn-group-xs(role='group', aria-label='Basic example')
+               button.btn.btn-secondary#sortClass(type='button') Class Title
+               button.btn.btn-secondary#sortClassLongName(type='button') Class Name
+               button.btn.btn-secondary#sortEnrolledStudents(type='button') # of Students
+               button.btn.btn-secondary#sortUnits(type='button') Units
+      div.table_container
+           table.table_style#classResults
+              tbody#listClassContents
+                 tr.columHeaders
+                    th.addingHeader
+                    th.searchHeader
+                       | Classes
+                    th.unitsHeader
+                       | Units
+
+                 each obj in objs
+                   - if (obj.type == 'class') {
+                       tr
+                          td.addingColumn
+                            a(href="/enroll/" + obj.obj.department + "-" + obj.obj.courseNum)
+                               img#addicon(src='/misc/addIcon3.png',width='25px')
+                          td.searchColumn
+                             ui.relaxed.divided.list
+                               .item
+                                 .content
+                                    a(href="/class/" + obj.obj.department + "-" + obj.obj.courseNum).professor_name= obj.obj.department + " " + obj.obj.courseNum
+                             span.professor_depart= obj.obj.name
+                             td.unitsColumn
+                                 = obj.obj.units
+
+                   - }
+
+      //tr
+         td.addingColumn
+           - if (obj.type == 'class') {
+              img(src='/misc/addicon.png',width='25px')
+           - }
+         td.searchColumn
+            ui.relaxed.divided.list
+              .item
+                .content
+                   - if (obj.type == 'class') {
+                      a(href="/class/" + obj.obj.department + "-" + obj.obj.courseNum).professor_name= obj.obj.department + " " + obj.obj.courseNum
+                   - } else {
+                      a(href="/professor/" + obj.obj._id).professor_name= obj.obj.name
+                   - }
+            - if (obj.type == 'class') {
+               span.professor_depart= obj.obj.name
+            - } else {
+               p.professor_depart Department of blah blah blah
+            - }
+         td.studentsEnrolledColumn
+            p 512
+
+
+
+
+   footer
+      include ./../../partials/footer.pug

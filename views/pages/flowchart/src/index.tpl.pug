@@ -1,0 +1,20 @@
+html(lang='en')
+  include ./../../partials/header.pug
+  link(href='/stylesheets/index/info.css', rel='stylesheet')
+
+  head
+    meta(charset='utf-8')
+    title Sqzee FlowChart
+  body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+    #container
+      script(src='//unpkg.com/react@15/dist/react.min.js')
+      script(src='//unpkg.com/react-dom@15/dist/react-dom.min.js')
+      script(src='//cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js')
+      script(src='../dist/react-draggable.js')
+      script(src='../index.js')
+      script(type='text/javascript', src='./main.bundle.js')

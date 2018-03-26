@@ -1,0 +1,47 @@
+html
+   nav.navbar.navbar-default(style="margin-bottom:0px;")
+      .container-fluid
+         .navbar-header
+            button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#bs-collapse-1" aria-expanded="false")
+               span.sr-only Toggle navigation
+               span.icon-bar
+               span.icon-bar
+               span.icon-bar
+            button.navbar-toggle.glyphicon.glyphicon-search#searchCollapse(type="button" data-toggle="collapse" data-target="#bs-collapse-2" aria-expanded="false")
+            a.navbar-brand#mainLogo(href="/")
+               img.navbarSqzeeLogo(src="/favicon.ico")
+         .collapse.navbar-collapse.collapseSearch#bs-collapse-2
+            ul.nav.navbar-nav.col-sm-5.collapseSearch(style="margin-left:5px; margin-top:8px; margin-bottom:-8px;")
+               form.ui.form(action="/search/" method="post" style="font-size:14px;")
+                  .input-group
+                     input.form-control(id="search" type="text" placeholder="Search for classes or professors here..." name="query")
+                     span.input-group-btn
+                        button.btn.btn-default(type="submit") Search
+         .collapse.navbar-collapse#bs-collapse-1
+            ul.nav.navbar-nav.navbar-left
+               li
+                  a(href="/info")
+                     |   Info
+               li
+                  a(href="/general-forum")
+                     | Cal Poly Events
+               li.dropdown
+                  a(href="/class")
+                     | Class List
+            ul.nav.navbar-nav.col-sm-5.expandedSearch(style="margin-left:5px; margin-top:8px; margin-bottom:-8px;")
+               form.ui.form(action="/search/" method="post" style="font-size:14px;")
+                  .input-group
+                     input.form-control(id="search" type="text" placeholder="Search for classes or professors here..." name="query")
+                     span.input-group-btn
+                        button.btn.btn-default(type="submit") Search
+            ul.nav.navbar-nav.navbar-right
+               li.dropdown
+                  a.dropdown-toggle(href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false")
+                     | Log In
+                     span.caret
+                  ul.dropdown-menu
+                     li
+                        a(href="/auth/facebook/")
+                           button.btn.btn-block.btn-social.btn-facebook(type="button")
+                              span.fa.fa-facebook
+                              | Sign in with Facebook

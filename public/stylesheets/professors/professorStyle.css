@@ -1,0 +1,653 @@
+@media only screen and (min-width: 1500px) {
+
+   span#professorName {
+      font-size: 66px;
+   }
+
+   div.college {
+      font-size: 38px;
+   }
+
+   div.department {
+      font-size: 38px;
+   }
+
+   span#whiteText {
+      font-size: 38px;
+   }
+
+   span#orangeText {
+      font-size: 44px;
+   }
+
+   span#redText {
+      font-size: 32px;
+   }
+
+   div.textArea {
+      font-size: 32px;
+   }
+
+   a#mentionedWord {
+      font-size: 26px;
+   }
+}
+
+
+.forum {
+   background-color: #EDEDED;
+   width:90%;
+   height:90%;
+   margin:auto;
+
+   border-radius: 5px;
+
+   overflow-y: scroll;
+}
+
+.forum#professorReviews::-webkit-scrollbar {
+      display: none;
+}
+
+
+
+
+.headContainer {
+   background-color: #800080;
+   overflow: hidden;
+   position: relative;
+   width: 100%;
+   padding-bottom: 0px;
+}
+
+.headerNamePic {
+   /*background-color: #2d862d;*/
+   background-color: #008080;
+   padding: 20px;
+   padding-left: 70px;
+
+   width: 70%;
+   display: inline-block;
+   vertical-align: top;
+   text-align: left;
+}
+
+#professorName {
+   color: white;
+   font-family: "Trebuchet MS";
+   font-weight: bold;
+   font-size: 3.5vw;
+
+   vertical-align: middle;
+   margin-left: 10px;
+}
+
+
+#quarterName {
+   color: #B0E0E6;
+   font-family: "Trebuchet MS";
+   font-weight: bold;
+   font-size: 1.9vw;
+   vertical-align: middle;
+}
+
+
+#professorEmail {
+   color: #EEE8AA;
+   font-family: "Trebuchet MS";
+   font-weight: bold;
+   font-size: 1.5vw;
+   vertical-align: middle;
+}
+
+
+#circleImg {
+    border-radius: 50px;
+    width: 100px;
+}
+
+
+
+
+.collegeDepartmentContainer {
+   font-family: "Trebuchet MS";
+   color: white;
+   width: 100%;
+   height: auto;
+   display: inline-block;
+   vertical-align: top;
+   margin-top: -15px;
+
+   text-align: left;
+   padding-left: 12px;
+}
+
+.college {
+   color: #ADD8E6;
+   font-size: 1.8vw;
+   margin-top: 15px;
+}
+
+.department {
+   color: #87E293;
+   font-size: 1.8vw;
+   margin-top: -5px;
+}
+
+
+
+.informationContainer {
+   font-family: "Trebuchet MS";
+   width: 30%;
+   height: 100%;
+   position: absolute;
+   display: inline-block;
+   vertical-align: bottom;
+   text-align: left;
+
+   padding-bottom: 20px;
+   padding-top: 45px;
+   padding-left: 40px;
+
+
+   /*background-color: #53c653;*/
+   background-color: #00b3b3;
+}
+
+.ratingArea {
+   padding-top: 10px;
+   font-weight: bold;
+}
+
+#whiteText {
+   color: white;
+   font-size: 1.9vw;
+}
+
+#blueText {
+   color: #ffcc66;
+   font-size: 2.0vw;
+   padding-left: 10px;
+   padding-right: 5px;
+   font-weight: normal;
+}
+
+#darkerText {
+   color:    #ffb84d;
+   font-size: 1.9vw;
+   font-weight: normal;
+}
+
+.textArea {
+   color: white;
+   font-size: 2.0vw;
+
+   margin-top: 0px;
+}
+
+.ratingNumber#orangeText {
+   padding-left: 0px;
+}
+
+.countOfReviews#orangeText {
+   padding-left: 0px;
+   font-size: 2.0vw;
+}
+
+.mostMentioned {
+   border-style: solid;
+   border-color: white;
+   border-width: thin;
+   padding: 7px;
+   display: inline-block;;
+   width: auto;
+   border-radius: 8px;
+
+   margin-top: 5px;
+
+}
+
+#mentionedWord {
+   color: #fe8f48;
+   font-size: 1.5vw;
+   font-weight: lighter;
+
+   text-decoration: none;
+
+}
+
+#mentionedWord:hover {
+   color: #fed5ba;
+
+   cursor: pointer;
+}
+
+
+
+.sectionHeader {
+   color: #424242;
+   text-align: center;
+
+   font-size: 18px;
+   font-family: "Trebuchet MS";
+   font-weight: bold;
+
+   padding: 10px 0px 10px 0px;
+}
+
+
+.reviewClassesSection {
+
+}
+
+.reviewSection{
+   display: inline-block;
+   width: 70%;
+   vertical-align: top;
+   /*padding-top: 10px;*/
+   margin-bottom: 20px;
+   min-height: 600px;
+
+}
+
+.classContainerForReviews {
+  font-family: "Trebuchet MS";
+  background-color: white;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+  text-align: center;
+  /*padding-right: 10px;*/
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  padding-top: 15px;
+}
+
+.classReviewSection {
+   font-size: 20px;
+   width: 100%;
+}
+
+.classReviewSectionName {
+   font-weight: bolder;
+   font-size: 20px;
+   color: #FE731B;
+   text-align: center;
+   /*background-color: #f5f5f5;*/
+   background-color: #FFF;
+   height: 60px;
+   border-bottom: 1px solid #D5D5D5;
+}
+
+.classReviewSectionName:hover {
+   background-color: #f5f5f5;
+}
+
+.classReviewSectionName > a {
+   position: relative;
+   top: 10px;
+}
+
+.forum#professorReviews {
+   width: 100%;
+}
+
+a.list-group-item.reviewSectionPosts {
+   background-color: white;
+   position: relative;
+
+}
+
+.description#reviewContent {
+   background-color: white;
+}
+
+.classSideBar {
+   display: inline-block;
+   width: 30%;
+   height: 100%;
+   min-height: 600px;
+   vertical-align: top;
+   padding-right: 10px;
+   border-left: 1px solid rgba(34, 36, 38, 0.15);
+   overflow-y: scroll;
+}
+
+.table_style tr {
+   border-bottom: 1px solid rgba(34,36,38,0.15);
+}
+
+.table_style tr:nth-child(odd) {
+   background: white;
+}
+
+.table_style tr:nth-child(even) {
+   background: white;
+}
+
+.professor_name#class {
+   font-weight: bolder;
+   color: #ffc34d;
+}
+
+.professor_name#class:hover {
+   color: #ffd480;
+}
+
+.proffesor_info {
+   padding-bottom: 10px;
+}
+
+.ratingPlaceholder {
+   padding-top: 10px;
+}
+
+
+
+/* START OF REVIEW SECTION CSS */
+
+.linksForReviews {
+   text-align: center;
+   background-color: #FFFFFF;
+   /*height: 30px;*/
+}
+
+
+.classLink {
+   color: #ffc34d;
+   font-weight: normal;
+   font-size: 16px;
+   padding-right: 5px;
+   width: auto;
+   text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+   padding-bottom: 5px;
+   padding-top: 5px;
+
+}
+
+#reviewLink {
+   color: #ffc34d;
+}
+
+#reviewLink:hover {
+   color: #ffc34d;
+}
+
+#reviewLinkHeader {
+   color:#ffc34d;
+   text-decoration: none;
+}
+
+.reviewLinkTable td:not(:last-child) {
+   border-right: 1px solid rgba(34,36,38,0.15);
+}
+
+ul.list-group {
+   background-color:#EDEDED;
+}
+
+a.list-group-item {
+   background-color:#EDEDED;
+}
+
+p#postNewReview {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   display: inline;
+}
+
+.collapse#dropdownArea {
+   border-left: 1px solid #D5D5D5;
+   border-right: 1px solid #D5D5D5;
+}
+
+.outsideForm {
+   padding:20px 0px 5px 0px;
+}
+
+.classReviewSection {
+   font-size: 20px;
+   width: 100%;
+}
+
+.classReviewSectionName {
+   font-weight: bolder;
+   color: #ffc34d;
+   text-align: center;
+}
+
+.noReviewsText {
+   display: none;
+   font-weight: bold;
+   /*padding-left: 30px;*/
+   padding-bottom: 10px;
+   padding-top: 10px;
+   font-size: 15px;
+   color: #a6a6a6;
+   text-align: center;
+}
+.col-xs-4#removeRightPadding, .col-xs-6#removeRightPadding {
+   padding-right:0px;
+}
+
+select.form-control.form-control-lg {
+   font-family: 'Trebuchet MS';
+   font-size:14px;
+}
+
+textarea.form-control {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   resize: none;
+   height:100px;
+}
+
+button.btn.btn-primary {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   margin-left: 14px;
+   background-color: #FE731B;
+   border-color: #FE731B;
+}
+
+button.btn.btn-primary:hover {
+   background-color: #fe9d5f;
+}
+
+input#anonymousPost {
+   margin-left:15px;
+}
+
+label#checkboxAnon {
+   padding-left: 5px;
+   font-family: 'Trebuchet MS';
+   font-size:14px;
+}
+
+.right {
+   float: right;
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+}
+
+.left {
+   float: left;
+}
+
+img#circle {
+   margin: 5px;
+   margin-bottom: 10px;
+   width: 30px;
+   border-radius: 15px;
+}
+
+.header {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+}
+
+.content {
+   padding: 10px 10px 10px 0px;
+}
+
+.content#reviewTextContainer {
+   width: 85%;
+   display: inline-block;
+   height: auto;
+   vertical-align: top;
+}
+
+
+.description {
+   font-family: 'Trebuchet MS';
+   font-size: 14px;
+   overflow: hidden;
+   white-space: pre-wrap;
+   background-color: #F6F6F6;
+   padding: 0px;
+}
+
+/* END OF REVIEW SECTION CSS */
+
+
+#logInText {
+   font-weight: bold;
+   padding-top: 25px;
+   padding-bottom: 25px;
+   color: black;
+   width: 100%;
+   display: inline-block;
+   text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+
+   img#circleImg {
+      width: 60px;
+      border-radius: 30px;
+
+      margin: auto;
+      display: block;
+   }
+
+   span#professorName {
+      font-size: 28px;
+
+      text-align: center;
+      display: block;
+
+      margin-left: 0px;
+   }
+
+   section.headContainer {
+      padding-bottom: 0px;
+      margin: 0px;
+   }
+
+   div.headerNamePic {
+      width: 100%;
+      padding-left: 0px;
+      padding-right: 0px;
+      align-items: center;
+   }
+
+   div.collegeDepartmentContainer {
+      width: 100%;
+      padding-top: 10px;
+      text-align: center;
+      padding-left: 0px;
+      font-size: 18px;
+   }
+
+   div.classContainerForReviews {
+      width: 100%;
+      padding-top: 10px;
+      text-align: center;
+      padding-left: 0px;
+      font-size: 18px;
+   }
+
+   div.college {
+      font-size: 18px;
+   }
+
+   div.department {
+      font-size: 18px;
+   }
+
+   a#professorEmail {
+     font-size: 18px;
+   }
+
+   div.informationContainer {
+      width: 100%;
+      text-align: center;
+      padding-left: 0px;
+      position: relative;
+      display: block;
+      height: auto;
+      padding-top: 10px;
+   }
+   span#blueText {
+     font-size: 18px;
+   }
+
+   span#darkerText {
+     font-size: 18px;
+   }
+   span#whiteText {
+      font-size: 18px;
+   }
+
+   span#quarterName {
+      font-size: 18px;
+   }
+   span#orangeText {
+      font-size: 20px;
+   }
+
+   span.ratingNumber#orangeText {
+      padding-left: 5px;
+   }
+
+   span.countOfReviews#orangeText {
+      padding-left: 10px;
+      font-size: 20px;
+   }
+
+   span#redText {
+      font-size: 16px;
+   }
+
+   div.textArea {
+      font-size: 16px;
+   }
+
+   a#mentionedWord {
+      font-size: 12px;
+   }
+
+   .reviewSection {
+     display: inline-block;
+     vertical-align: top;
+
+     width: 100%;
+     min-height: 0px;
+   }
+
+
+
+   div.classSideBar {
+      width: 100%;
+      height: auto;
+      min-height: 0px;
+      margin-top: 20px;
+      padding: 20px;
+
+      border-left: 0px solid rgba(34, 36, 38, 0.15);
+      border-top: 1px solid rgba(34,36,38,0.15);
+   }
+
+}

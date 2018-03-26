@@ -1,0 +1,91 @@
+html(lang='en')
+  include ./../../partials/header.pug
+  link(href='/stylesheets/index/info.css', rel='stylesheet')
+
+  head
+    title Info Page
+    #slideshow
+     img(src='/misc/background/home2.jpg')
+
+  body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+
+    .container
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+               | Life's better with a little Sqzee
+            hr
+
+
+
+            div(align='center')
+               //iframe(width='754', height='430', src='https://www.youtube.com/embed/i6enEBV9EKY?autoplay=1&rel=0', frameborder='0', allowfullscreen='')
+               img.img-responsive.img-border-left(src='../sqzeeteam.jpg', alt='' style="width:800px; margin: auto; align: middle")
+
+            br
+            p#text.
+                Sqzee.com is an educational management platform that provides resources for specific classes
+                at selected universities. We aim to enable the potential within students with an encompassing,
+                expansive site, while also tailoring the content to fit their individual needs.
+
+            - for(i=0;i<2;i++) {
+            br
+            -}
+            //
+              br
+              br
+              br
+              hr
+              h2.intro-text.text-center
+                 | What we offer
+              hr
+
+              .col-sm-4New.text-center(style="width:13%; display:inline-block;")
+
+
+              .col-sm-4New.text-center(style="width:87%; display:inline-block;")
+                 img.img-responsive(src='../misc/info/forum.gif' height='800' width='800')
+
+
+              br
+              br
+              br
+
+              .col-sm-4New.text-center(style="width:100%; display:inline-block;")
+
+
+              br
+              br
+              br
+
+              .col-sm-4New.text-center(style="width:50%; padding:20px; display:inline-block;")
+                 img.img-responsive(src='../misc/info/hub-03.png' height='400' width='400')
+
+              .col-sm-4New.text-center(style="width:50%; padding:20px; display:inline-block;")
+                 img.img-responsive(src='../misc/info/hub-05.png' height='400' width='400')
+
+              .col-sm-4New.text-center(style="width:50%; padding:20px; display:inline-block;")
+                 img.img-responsive(src='../misc/info/hub-02.png' height='600' width='600')
+
+
+              .col-sm-4New.text-center(style="width:50%; padding:20px; display:inline-block;")
+                 img.img-responsive(src='../misc/info/hub-01.png' height='400' width='400')
+
+
+
+
+
+
+
+
+
+  footer
+    include ./../../partials/footer.pug
+    include ./../../partials/drift.pug

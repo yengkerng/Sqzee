@@ -1,0 +1,31 @@
+style.
+   #rotating-item-wrapper {
+      width:200px;
+      height:200px;
+      margin: 5px auto 5px auto;
+      /*border: 1px solid rgba(34, 36, 38, 0.15);*/
+   }
+   .rotating-item {
+      display: none;
+      max-width: 100%;
+      max-height: 100%;
+
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+   }
+
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    script(type='text/javascript', src='/scripts/infinite-rotator.js')
+  body
+     //.sectionHeader Sponsored Content
+     #rotating-item-wrapper
+        //img.rotating-item(src='./../misc/grading_1.png')
+        a(href="http://www.subway.com/en-CA")
+           img.rotating-item(src='https://scontent-sjc2-1.xx.fbcdn.net/v/t1.0-9/10391938_224767829973_7136293_n.jpg?oh=6dac6afb6ed539ea3432bba9007406ba&oe=580E4BD2')
+        a(href="https://www.spotify.com/ca-en/")
+           img.rotating-item(src='https://scontent-sjc2-1.xx.fbcdn.net/v/t1.0-9/11816968_1005084316171214_3679644596985696688_n.png?oh=71ac14c77c2c293710a1478f23552b7d&oe=57CAAF21')
+        a(href="http://www.jambajuice.com/")
+           img.rotating-item(src='http://www.kalyansuman.com/uploaded_images/Jamba-707543.JPG')

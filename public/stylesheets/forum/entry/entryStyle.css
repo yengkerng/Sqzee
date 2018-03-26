@@ -1,0 +1,340 @@
+@media only screen and (max-width: 750px) {
+   div.postContainer {
+      width: 100%;
+      height: 70%;
+   }
+   div.extraContainer {
+      width: 100%;
+      height: 30%;
+      overflow: visible;
+   }
+   div.classTitle {
+      font-size: 6vw;
+   }
+}
+
+html, body {
+   width: 100%;
+   height: 100%;
+}
+
+.postContainer {
+   background-color: #076382;
+
+   width: 70%;
+   height:100%;
+   min-height: 600px;
+   padding: 0 20px 0 20px;
+
+   float: left;
+}
+
+.extraContainer {
+   width: 30%;
+   height: 100%;
+   min-height: 600px;
+
+   float: right;
+   overflow: scroll;
+}
+
+.titleContainer {
+   vertical-align: bottom;
+}
+
+.buttonContainer {
+   display: inline-block;
+   width: 10%;
+   padding: 20px 0 20px 0;
+}
+
+.ui.button#backButton {
+   border-radius: 5px;
+   text-align: center;
+   font-family: "Trebuchet MS";
+   display: inline-block;
+   text-decoration: none;
+
+   background: #FE731B;
+   width: 50px;
+   height: 50px;
+}
+
+.ui.button#backButton:hover {
+   background: #fe924d;
+}
+
+#backText {
+   vertical-align: baseline;
+   line-height: 1.2em;
+   font-size: 40px;
+   height: auto;
+   justify-content: center;
+   color: black;
+   font-weight: lighter;
+}
+
+.classTitle {
+   padding: 20px 20px 20px 0;
+   font-family: "Trebuchet MS";
+   color: white;
+   font-size: 40px;
+   text-align: center;
+   width: 90%;
+
+   display: inline-block;
+   vertical-align: bottom;
+}
+
+.post {
+   width:100%;
+   min-height: 100px;
+   border-radius: 5px;
+
+   background-color: #E9E9E9;
+
+   padding:10px;
+
+   font-family: "Trebuchet MS";
+}
+
+.postInformation{
+   width: 93%;
+
+   float:left;
+}
+.postTitle {
+   font-size: 18px;
+   padding-top: 5px;
+   padding-left: 5px;
+}
+.postAuthor {
+   font-size: 14px;
+   padding-left: 5px;
+   padding-bottom: 5px;
+}
+
+.postRatingSection{
+   width: 35px;
+   height: 50px;
+
+   float:right;
+}
+.postRating {
+   display: flex;
+   vertical-align: middle;
+   align-items: center;
+   justify-content: center;
+
+   height:100%;
+   width:25px;
+   float:left;
+}
+.postRate{
+   display: flex;
+   vertical-align: middle;
+   align-items: center;
+   justify-content: center;
+
+   height: 100%;
+   width:10px;
+   float:right;
+}
+
+.postTextContainer{
+   clear:both;
+   white-space:pre-wrap;
+   background-color: #F8F8F8;
+   padding: 10px;
+}
+.postText {
+   font-family: "Trebuchet MS";
+}
+
+.postButtons {
+   height: 20px;
+   width: 98%;
+   margin: 10px auto 0px auto;
+}
+
+.report {
+   float: left;
+}
+
+.reply {
+   float: right;
+}
+
+.replyTo#hidden {
+   display: none;
+}
+
+.replyTo#show {
+   background-color: #f6f6f6;
+   display: block;;
+
+   width: 98%;
+   height: auto;
+
+   margin: 10px 1% 0 1%;
+   padding: 10px;
+}
+
+#replyFormArea {
+   padding: 0px;
+   margin: 0px;
+
+   white-space: nowrap;
+}
+
+#replyText {
+   width:100%;
+   height: 70px;
+   resize: none;
+}
+
+#replySubmit {
+   margin-top: 10px;
+}
+
+p#anonTextWarning {
+   display: inline;
+   margin: 0px 0 0 10px;
+
+   font: "Trebuchet MS";
+   font-size: 10px;
+}
+
+/*-----This section is for the comment area-------*/
+.commentBox {
+   background-color: #e4e4e4;
+   width: 95%;
+
+   padding:10px;
+   margin-left: 5%;
+   margin-top: 5px;
+
+   border-radius: 3px;
+}
+
+.actualComment {
+   background-color: #f6f6f6;
+
+   font: "Trebuchet MS";
+}
+
+.comment {
+   padding: 10px;
+}
+
+.commentDetails {
+   margin: 0px;
+   padding: 0px;
+}
+
+/*------Everything below this point has to do with the upvotes and downvotes. I believe Andrew made this--------*/
+
+.content#reviewTextContainer {
+   width: 85%;
+   display: inline-block;
+   height: auto;
+   vertical-align: top;
+}
+
+.reviewTagVoteContainer {
+   display: inline-block;
+   width: 7%;
+   margin-top: -2px;
+   text-align: center;
+}
+
+#reviewTag {
+   margin-top: 0px;
+   margin-bottom: 2px;
+   text-align: inherit;
+   color: #0f0f0f;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-bottom: 5px solid #ababab;
+}
+
+.arrow-down {
+   width: 0;
+   height: 0;
+   border-left: 5px solid transparent;
+   border-right: 5px solid transparent;
+
+   border-top: 5px solid #ababab;
+}
+
+.voteNotification {
+   z-index: 10;
+   background-color: #ababab;
+   color: white;
+   display: none;
+   border-radius: 5px;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+
+}
+
+.voteNotification#upNotify {
+   margin-left: -10px;
+   margin-top: -20px;
+}
+
+
+
+.voteNotification#downNotify {
+   margin-top: -8px;
+   margin-left: -9px;
+}
+
+.glyphicon.glyphicon-triangle-top {
+   font-size: 20px;
+}
+
+.glyphicon.glyphicon-triangle-bottom {
+   font-size: 20px;
+}
+
+.glyphicon.glyphicon-triangle-top#upvote:hover {
+   color: #87E293;
+   cursor: pointer;
+}
+
+.glyphicon.glyphicon-triangle-top#alreadyVoted {
+   color: #87E293;
+}
+
+.glyphicon.glyphicon-triangle-bottom#alreadyVoted {
+   color: #ff4c4c;
+}
+
+.glyphicon.glyphicon-triangle-bottom#downvote:hover {
+   color: #ff4c4c;
+   cursor: pointer;
+}
+
+.upvoteForm {
+   margin-bottom: 5px;
+   z-index: 9;
+}
+
+
+.lowerContentContainer {
+   margin-top: 15px;
+   margin-bottom: 5px;
+}
+
+#reviewTag.notLoggedInTag {
+   margin-top: 15px;
+   margin-bottom: 0px;
+}

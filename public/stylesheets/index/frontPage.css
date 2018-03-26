@@ -1,0 +1,126 @@
+@media only screen and (max-width: 1100px) {
+
+  #forumHover {
+     display: none;
+
+  }
+
+  .popupText {
+    display: none;
+
+
+  }
+
+  #loginHover {
+    display: none;
+
+  }
+
+
+}
+
+input[type=text] {
+   text-align: center;
+   width: 400px;
+   box-sizing: border-box;
+   border: 2px solid #ccc;
+   border-radius: 4px;
+   font-size: 16px;
+   background-color: lightgray;
+
+   padding: 10px 20px 10px 20px;
+
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+
+   width: 60%;
+
+}
+input[type=text]::-webkit-input-placeholder{
+   color: black;
+}
+
+#answerbox {
+
+   opacity: 0.7;
+
+   height: 35%;
+   width:  70%;
+   max-width: 700px;
+   max-height: 300px;
+   min-height: 200px;
+
+   border: 1px solid #333333;
+   background-color: #333333;
+
+   border-radius: 10px;
+
+}
+
+.searchArea {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   opacity: 0.7;
+   padding-right:25px;
+}
+
+#forumHover {
+   position: absolute;
+   visibility: hidden;
+   background-color: #198c8c;
+   border-radius: 5px;
+   width: 200px;
+   margin-top: -5px;
+   margin-left: 5px;
+   padding: 10px;
+
+}
+
+#forumHover:before {
+   content: ' ';
+   height: 0;
+   position: absolute;
+   width: 0;
+   left: -19px;
+   border: 10px solid transparent;
+   border-right-color: #198c8c;
+}
+
+.popupText {
+   color: #FFFFFF;
+   font-weight: bold;
+   font-size: 14px;
+
+}
+
+#loginHover {
+   position: absolute;
+   visibility: hidden;
+   background-color: #2d85c8;
+   border-radius: 5px;
+   width: 250px;
+   margin-top: -5px;
+   margin-left: -407px;
+   padding: 10px;
+}
+
+#loginHover:before {
+   content: ' ';
+   height: 0;
+   position: absolute;
+   width: 0;
+   right: -20px;
+   border: 10px solid transparent;
+   border-left-color: #2d85c8;
+}
+
+button.ui.teal.submit.button#forum:hover + #forumHover {
+   visibility: visible;
+}
+
+button.ui.left.blue.submit.button#hub:hover + #loginHover {
+   visibility: visible;
+}

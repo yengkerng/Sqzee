@@ -1,0 +1,63 @@
+html(lang='en')
+  head
+    title ERROR
+    include ./../../partials/header.pug
+
+    //link(href='/stylesheets/index/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/index/business-casual.css', rel='stylesheet')
+    //link(href='http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic', rel='stylesheet', type='text/css')
+
+  body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+    .container
+      .row
+        .box
+          .col-lg-12
+            hr
+            h2.intro-text.text-center
+              | 404 ERROR
+            hr
+
+            img.img-responsive.img-border-left(src='../misc/team.jpg', alt='' style="width:300px; height:300px; margin: auto; align: middle")
+
+            br
+            p#text.
+                Sqzee currently only supports Facebook authentication, sorry for any inconvenience caused!
+
+            - for(i=0;i<3;i++) {
+            br
+            -}
+
+
+          .clearfix
+          br
+
+
+  style.
+
+    .grid {
+       background: #DDD;
+    }
+
+   .grid-item-2 {
+    width: 33.000%;
+   }
+
+   .grid-item-2 {
+    float: right;
+   }
+
+   .grid-item-2 img {
+    display: block;
+    max-width: 100%;
+    padding-top:3px;
+    padding-left:3px;
+   }
+
+
+  footer
+    include ./../../partials/footer.pug

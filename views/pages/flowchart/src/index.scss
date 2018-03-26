@@ -1,0 +1,354 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	// background: #ecf2f9;
+}
+
+body {
+	color: #222;
+	font-family: "Helvetica Neue", sans-serif;
+	font-weight: 200;
+	margin: 0px;
+}
+
+#appHeader {
+   margin-left: 15px;
+   float: left;
+   display: inline-block;
+}
+
+.react-draggable, .cursor {
+	cursor: move;
+}
+
+.no-cursor {
+	cursor: auto;
+}
+
+.cursor-y {
+	cursor: ns-resize;
+}
+
+.cursor-x {
+	cursor: ew-resize;
+}
+
+.react-draggable strong {
+	background: #ddd;
+//	border: 1px solid #999;
+	border-radius: 15px;
+	display: block;
+	margin-bottom: 10px;
+	padding: 3px 5px;
+	text-align: center;
+}
+
+.wrapper {
+   //background: url('./gradient8.jpg') no-repeat;
+   background-repeat: no-repeat;
+   background-size: cover;
+   //background-size: 30px;
+}
+
+.boardTitleContainer {
+   text-align: center;
+   font-size: 10px;
+   width: 100%;
+   margin-right: 160px;
+}
+
+.box {
+	background: #4c819a;
+	border-radius: 3px;
+	width: 150px;
+	height: 150px;
+	margin: 0px;
+	padding: 10px;
+	border-radius: 13px;
+	float: left;
+	font-weight: normal;
+	font-size: 13.5px;
+}
+
+#classTitle {
+	color: white;
+	text-align: center;
+	font-size: 18px;
+}
+
+#classTitle:hover {
+	color: #bfbfbf;
+}
+
+#classTitleContainer {
+	width: 100%;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+#classDescription {
+	color: white;
+	text-align: center;
+	font-size: .9vw;
+	padding-bottom: 10px;
+}
+
+#classUnits {
+	color: white;
+	text-align: center;
+	font-size: 1vw;
+
+}
+
+.horizontalContainer {
+	width: 100%;
+	display: flex;
+   //padding-left: 260px;
+	flex-flow:row;
+	overflow-x: scroll;
+	overflow-y: hidden;
+   //box-shadow: 5px 5px 20px -10px #000 inset;
+   //z-index: 2;
+   z-index: 1;
+   position: relative;
+	padding-top: 10px;
+}
+
+.horizontalContainer:after {
+    flex: none;
+    -webkit-flex: none;
+    display: block;
+    width: 100px;
+}
+
+#draggingBox {
+	margin-top: 49px;
+}
+
+.yearTitleContainer {
+	height: 50px;
+	text-align: center;
+	margin-bottom: -11px;
+}
+
+.year {
+	width: 100%;
+	display: block;
+}
+
+.yearTitle {
+	font-size: 25px;
+	font-weight: normal;
+	color: white;
+	letter-spacing: 3px;
+}
+
+.lineTitle {
+	padding-right: 15px;
+	width: 90%;
+	height: 1px;
+   border: 0;
+   border-top: 2px solid white;
+	padding-bottom: 0px;
+}
+
+.boardContainer {
+	display: flex;
+}
+
+.board {
+	/*flex: none;
+	-webkit-flex: none;
+	overflow: auto;**/
+	border: 1px solid #999;
+	background: #f7f7f8;
+	border: black;
+	border-radius: 3px;
+	height: 800px;
+	margin: 10px;
+   //position: relative;
+   //z-index: 1;
+}
+
+.quarterTitle {
+   color: #ED5D54;
+	letter-spacing: 2px;
+}
+
+.flowchartContainer {
+   width: 100%;
+   overflow-x: scroll;
+   display: inline-block;
+}
+
+.classlistContainer {
+   display: inline-block;
+   float: right;
+   background-color: #44748a;
+   color: white;
+   width: 200px;
+	text-align: center;
+	height: 70px;
+   margin-right: 40px;
+   border-radius: 0px 0px 5px 5px;
+}
+
+.classList {
+   list-style: none;
+   margin-top: -1px;
+   background-color: #44748a;
+   padding: 0px;
+   position: absolute;
+   margin-right: 10px;
+   color: black;
+	 width: 200px;
+    height: 100%;
+    overflow-y: scroll;
+    z-index: 2;
+}
+
+.classList > li {
+   width: 100%;
+   padding: 5px;
+   background-color: #FDF5E6;
+   border-bottom: 3px;
+   cursor: pointer;
+   margin-right: 10px;
+}
+
+#expandButton {
+   cursor: pointer;
+   font-size: 16px;
+	background-color: #FFFFFF;
+   border-color: #B2B2B2;
+   outline: none;
+   width: 30px;
+   border-radius: 3px;
+   border: 2px solid rgba(34, 36, 38, 0.15);
+
+}
+
+#deleteButton {
+   cursor: pointer;
+   font-size: 8px;
+	background-color: #FFFFFF;
+   border-color: #B2B2B2;
+   border-radius: 3px;
+   border: 1px solid rgba(34, 36, 38, 0.15);
+	float: right;
+}
+
+#deleteButtonContainer {
+	width: 100%;
+	padding-bottom: 17px;
+}
+
+.react-grid-layout {
+  position: relative;
+  transition: height 200ms ease;
+}
+.react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top;
+}
+.react-grid-item.cssTransforms {
+  transition-property: transform;
+}
+.react-grid-item.resizing {
+  z-index: 1;
+  will-change: width, height;
+}
+
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  will-change: transform;
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: blue;
+  opacity: 0.2;
+  transition-duration: 1ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pg08IS0tIEdlbmVyYXRvcjogQWRvYmUgRmlyZXdvcmtzIENTNiwgRXhwb3J0IFNWRyBFeHRlbnNpb24gYnkgQWFyb24gQmVhbGwgKGh0dHA6Ly9maXJld29ya3MuYWJlYWxsLmNvbSkgLiBWZXJzaW9uOiAwLjYuMSAgLS0+DTwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DTxzdmcgaWQ9IlVudGl0bGVkLVBhZ2UlMjAxIiB2aWV3Qm94PSIwIDAgNiA2IiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojZmZmZmZmMDAiIHZlcnNpb249IjEuMSINCXhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbDpzcGFjZT0icHJlc2VydmUiDQl4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjZweCIgaGVpZ2h0PSI2cHgiDT4NCTxnIG9wYWNpdHk9IjAuMzAyIj4NCQk8cGF0aCBkPSJNIDYgNiBMIDAgNiBMIDAgNC4yIEwgNCA0LjIgTCA0LjIgNC4yIEwgNC4yIDAgTCA2IDAgTCA2IDYgTCA2IDYgWiIgZmlsbD0iIzAwMDAwMCIvPg0JPC9nPg08L3N2Zz4=');
+  background-position: bottom right;
+  padding: 0 3px 3px 0;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  cursor: se-resize;
+}
+
+.layout {
+	  color: black;
+}
+.boardTitle {
+	color: #fff;
+	text-align: center;
+	font-size: 32px;
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.className {
+	height: 50px;
+	padding-top: 10px;
+	border-style: solid;
+	border-width: 0.1px;
+	text-align: center;
+	color: black;
+	background-color: white;
+
+}
+.className:hover {
+	background-color: #DCDCDC;
+
+}
+.search-input {
+  padding: 10px 10px;
+  height: 52px;
+  position: relative;
+}
+
+.search-input::before {
+  display: block;
+  position: absolute;
+  width: 15px;
+  z-index: 3;
+  height: 15px;
+  font-size: 20px;
+  top: 11px;
+  left: 16px;
+  line-height: 32px;
+  opacity: 0.6;
+}
+
+.search-input > input {
+  width: 100%;
+  font-size: 18px;
+  border: none;
+  line-height: 22px;
+  padding: 5px 10px 5px 25px;
+  height: 32px;
+  position: relative;
+}
+
+.search-input > input:focus {
+  outline: none;
+}

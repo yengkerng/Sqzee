@@ -1,0 +1,217 @@
+@media only screen and (max-width: 350px) {
+   th.searchHeader {
+      font-size: 14px;
+   }
+
+   th.detailColumnHeader {
+      font-size: 14px;
+   }
+
+   span.professor_depart {
+      font-size: 12px;
+   }
+
+   a.professor_name {
+      font-weight: bolder;
+      color: #F89932;
+      font-size: 16px;
+   }
+
+   section.titleContainer {
+      padding-bottom: 15px;
+   }
+}
+
+body {
+   background-color: #FFFFFF;
+}
+
+@media only screen and (max-width: 650px) {
+   div.table_container {
+      width: 100%;
+   }
+}
+
+.buttonWrapper {
+   padding-top: 5px;
+   padding-bottom: 10px;
+}
+
+.btn-secondary {
+   background-color: #FFFFFF;
+   border-width: 1px;
+   border-color: #F89932;
+   border-radius: 3px;
+}
+
+.btn-secondary:hover {
+   background-color: #d9d9d9;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+    background-color: #999999;
+}
+
+.btn-secondary:active {
+   background: #999999;
+   box-shadow: none;
+}
+
+#sortHeader {
+   color: black;
+   margin-right: 5px;
+}
+
+.container {
+   height: auto;
+   width: 100%;
+   background: #38829b;
+   display: inline-block;
+   margin: auto;
+}
+
+.container#body {
+   height: 100%;
+   width: 100%;
+   /*background: #38829b;*/
+   background: #FFFFFF;
+   position: absolute;
+}
+
+.img-circle {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+/*tr:nth-child(even) {
+   background: #b4d0d9;
+}*/
+
+tr:nth-child(odd) {
+   background: #white;
+}
+
+tr {
+   text-align: left;
+   width: auto;
+   padding-top: 10px;
+   border-bottom: 1px solid rgba(34,36,38,0.15);
+}
+
+td {
+   padding-top: 5px;
+   padding-bottom: 5px;
+
+}
+
+td:nth-child(even) {
+   width: 100%;
+}
+
+table {
+   width: 100%;
+   /*border-style: solid;*/
+}
+
+.columnHeaders {
+   margin-bottom: 20px;
+}
+
+.searchHeader {
+   color: #F89932;
+   padding-left: 10px;
+   padding-bottom: 10px;
+   width: 75%;
+   font-size: 25px;
+}
+
+.searchColumn {
+   padding-left: 10px;
+   width: 75%;
+}
+
+.detailColumnHeader {
+   color: #F89932;
+   white-space: nowrap;
+   text-align: right;
+   font-size: 25px;
+   padding-bottom: 10px;
+}
+
+.detailColumn {
+   white-space: nowrap;
+   text-align: center;
+   color: #F89932;
+   padding-left: 120px;
+}
+
+.titleContainer {
+   background-color: #FFFFFF;
+   /*height: 100px;*/
+   width: auto;
+   height: auto;
+}
+
+.title {
+   color: #F89932;
+   text-align: center;
+   font-weight: bold;
+   font-size: 28px;
+   padding-top: 35px;
+}
+
+.professor_depart {
+   font-weight: lighter;
+   color: black;
+}
+
+.professor_name {
+   font-weight: bolder;
+   color: #F89932;
+}
+
+.professor_name:hover {
+   color: #c76e32;
+}
+
+.headerText {
+   font-size: 2.5vw;
+   font-weight: bold;
+   text-align: center;
+   /*padding: 5px;*/
+   color: #00628B;
+   background-color: white;
+   padding-top: 1.8vh;
+   padding-bottom: 1.6vh;
+}
+
+.table_container {
+   height: auto;
+   border-radius: 5px;
+   /*padding: 10px;*/
+   width: 60%;
+   /*margin: auto;*/
+   position: relative;
+   /*margin-top: 50px;
+   margin-left: auto;
+   margin-right: auto;*/
+}
+
+.table_style {
+   /*width: 100%;*/
+   /*border-style: solid;*/
+   border-collapse: collapse;
+}
+
+.grading_table td {
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+
+.grading_table img {
+   width: 30px;
+   height: 30px;
+   border-radius: 70%;
+}

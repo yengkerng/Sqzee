@@ -1,0 +1,43 @@
+.navbarSqzeeLogo {
+   width: 45px;
+   height: 45px;
+   vertical-align: middle;
+   margin-top: 2px;
+   margin-left: 5px;
+}
+
+.navbar-brand#mainLogo {
+   position: relative;
+   padding: 0px;
+}
+
+.glyphicon.glyphicon-search {
+   color: #888;
+}
+
+
+@media only screen and (min-width: 700px) {
+
+   .collapseSearch#bs-collapse-2 {
+      display: none!important;
+   }
+}
+
+@media only screen and (max-width: 700px) {
+
+   button.navbar-toggle.glyphicon.glyphicon-search#searchCollapse {
+      text-align: center;
+   }
+
+   ul.nav.navbar-nav.col-sm-5.expandedSearch {
+      display: none;
+   }
+
+   /*div.collapseSearch#bs-collapse-2 {
+      display: block!important;
+      height: auto!important;
+      padding-bottom: 0;
+      visibility: collapse!important;
+   }*/
+
+}

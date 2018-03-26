@@ -1,0 +1,249 @@
+html
+   head
+      title Cal Poly Events
+      include ./../../partials/header.pug
+      link(href="/stylesheets/generalForum/generalForum.css", rel='stylesheet', type='text/css')
+      script(type='text/javascript', src='/scripts/generalForum/anchorme.js')
+      //script(type="text/javascript", src="/scripts/generalForum/generalForumCommentDisplay.js")
+      script(type='text/javascript', src='/scripts/generalForum/generalForumInteract.js')
+      script(src='http://code.jquery.com/jquery-1.11.1.min.js')
+      script(src='http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js')
+
+
+   body
+    - if (loggedIn){
+         include ./../../partials/navBarDynamic.pug
+    - }else{
+         include ./../../partials/navBarStatic.pug
+    - }
+      section.titleContainer
+         div#title EVENTS at CAL POLY
+
+      section.forum
+         div.navCotent
+            ul.nav.nav-tabs.mainNav
+              li.active
+                  a(href="#feed" data-toggle="tab") Feed
+              //li
+                  a(href="#saved" data-toggle="tab") Saved
+              //li
+                  a(href="#categories" data-toggle="tab") Categories
+              //li
+                  a(href="#myPosts" data-toggle="tab") My Posts
+              li.rightSideNav
+                  a(href="#composePost" data-toggle="tab")
+                     span.glyphicon.glyphicon-edit#composeIcon(aria-hidden='true')
+         div.tab-content
+            #feed.tab-pane.fade.in.active
+               each post in generalPosts
+                  li.list-group-item.forumPostBody
+                     span#postID= post._id
+                     .topSection
+                        span.postVoting
+                             - if (loggedIn) {
+                             div.upvoteContainer
+                                span.voteNotification#upCount
+                                   reivewCount= post.upvotes
+
+                                form.upvoteForm(action="/general-forum/upvotePost/" + post._id method="post")
+                                  - if (user.upvotedGPosts.indexOf(post._id) != -1) {
+                                       span.glyphicon.glyphicon-chevron-up#alreadyVoted
+
+                                  - } else {
+                                       span.glyphicon.glyphicon-chevron-up#upvote(onclick="javascript:this.parentNode.submit();")
+                                  - }
+                             div.voteShow= post.upvotes
+
+                             div.downvoteContainer
+                                span.voteNotification#downCount
+                                   reivewCount= post.downvotes
+
+                                form.downvoteForm(action="/general-forum/downvotePost/" + post._id method="post")
+                                  - if (user.downvotedGPosts.indexOf(post._id) != -1) {
+                                       .chevronNotLoggedIn
+                                       span.glyphicon.glyphicon-chevron-down#alreadyVoted
+
+                                  - } else {
+                                       .chevronNotLoggedIn
+                                       span.glyphicon.glyphicon-chevron-down#downvote(onclick="javascript:this.parentNode.submit();")
+                                  - }
+                             - } else {
+                              div.upvoteContainer
+                                 span.voteNotification#upCount
+                                    reivewCount= post.upvotes
+                                 form.upvoteForm
+                                    span.glyphicon.glyphicon-chevron-up
+                              div.voteShow= post.upvotes
+                              div.downvoteContainer
+                                 form.downvoteForm
+                                 span.glyphicon.glyphicon-chevron-down
+
+                             - }
+                        span.postContent
+                           .postContentText= post.event_title
+                           .postDetails
+                              - if (post.facebookProfileURL != null) {
+                                 span.profileContainer
+                                    span.profilePicContainer
+                                       //div.postAuthorPic#imgCircle(style="background-image:url("+post.facebookProfileURL+");")
+                                       //- console.log(post.facebookProfileURL)
+                                       - if (post.facebookProfileURL.length > 0) {
+                                          - if (post.facebookPicture != "anon") {
+                                          div.postAuthorPic#imgCircle(style="background-image:url("+post.facebookPicture+");")
+                                          - } else {
+                                          div.postAuthorPic#imgCircle(style="background-image:url('https://img.clipartfest.com/be641b0b0ccd4980bb4efcb50f778468_jun-28-the-anonymous-free-anonymous-person-clipart_750-481.png');")
+                                          - }
+                                       - } else {
+                                          div.postAuthorPic#imgCircle(style="background-image:url('https://img.clipartfest.com/be641b0b0ccd4980bb4efcb50f778468_jun-28-the-anonymous-free-anonymous-person-clipart_750-481.png');")
+                                       - }
+
+                              - }
+                              span.postAuthor= post.name
+                              span.separator -
+                              span.postDate= new Date(post.absTime).toLocaleDateString()
+
+                              - if (post.categories != "") {
+                                 span.separator -
+                                 - if (post.categories[0] == "greekLife") {
+                                    span.postCategories Greek Life
+                                 - } else if (post.categories[0] == "clubs") {
+                                    span.postCategories Clubs
+                                 - } else if (post.categories[0] == "academics") {
+                                    span.postCategories Academics
+                                 - } else if (post.categories[0] == "currentEvents") {
+                                    span.postCategories Current Events
+                                 - } else if (post.categories[0] == "media") {
+                                    span.postCategories Media
+                                 - } else if (post.categories[0] == "comedy") {
+                                    span.postCategories Comedy
+                                 - } else if (post.categories[0] == "strayThoughts") {
+                                    span.postCategories Stray Thoughts
+                                 - } else if (post.categories[0] == "classof2021") {
+                                    span.postCategories Class of 2021
+                                 - }
+                              - }
+
+                              - if (loggedIn && post.facebookProfileURL == user.picture) {
+
+                               .deletePost
+                                 form(id="generalPostDelete" action="/general-forum/delete_post/" + post._id method="post")
+                                      br
+                                      button.btn.btn-danger.btn-sm(onclick="javascript:this.parentNode.submit();") Delete
+                              - }
+
+                        span.commentsLink
+                           span#commentCountStyle= post.comments.length
+                           span#commentDescriptor comments
+                     .bottomSection
+
+            //#saved.tab-pane.fade
+               h3 Saved Posts
+               p Some content.
+            #categories.tab-pane.fade
+
+
+
+            #composePost.tab-pane.fade
+              - if (loggedIn) {
+                 h2#newPostHeader New Event
+                 form(id="generalPost" action='/general-forum/post' method='post').newPostFormContainer
+                    div
+                       fieldset.form-group#eventTitleContainer
+                          h4#eventTitleHeader Event Title
+                          input.form-control#eventTitleInput(name="event_title" placeholder="Come Join Cal Poly Entrepreneurs for some free pizza" form="generalPost" required)
+                       fieldset.form-group#clubNameContainer
+                           h4#clubNameHeader Organization/Club Name
+                           input.form-control#clubNameInput(name="club_name" placeholder="Cal Poly Comedy Club" form="generalPost" required)
+                    div
+                        fieldset.form-group.sideInput#locationContainer
+                           h4#locationHeader Location
+                           input.form-control#eventLocationInput(name="event_location" form="generalPost" placeholder="Building 14, room 212" required)
+                        fieldset.form-group.sideInput
+                           h4#timeHeader Date & Time
+                           span Date:
+                           input.form-control#eventDateInput(name="event_date" form="generalPost" placeholder="August 12 2019" required)
+                           span Time:
+                           input.form-control.timeInput#eventTimeInput(name="event_time" form="generalPost" placeholder="5:30 pm" required)
+                    fieldset.form-group
+                        h3#descriptionHeader Event Description
+                        textarea.postContentInput#newPostInput(name="content" form="generalPost" placeholder="Add more details about your event..." required)
+                    fieldset.form-group
+                       div.dropdown#dropdownCategories
+                        .col-xs-4#removeLeftPadding
+                           select.form-control.form-control-lg(name="category" form="generalPost")
+                             option(value="")| Categories
+                             option(value="greekLife") Greek Life
+                             option(value="clubs") Clubs
+                             option(value="academics") Academics
+                             option(value="currentEvents") Current Events
+                             option(value="media") Media
+                             option(value="comedy") Comedy
+                             option(value="strayThoughts") Stray Thoughts
+                             option(value="classof2021") Class of 2021
+
+                    fieldset.form-group#newPostButtons
+                       button.btn.btn-primary#submitButton(type="submit" form="generalPost") Submit
+                       input#anonymousPost(name="anon" form="generalPost" type="checkbox" tabindex="0")
+                       label#checkboxAnon(for="anonymousPost") Be Anonymous?
+                       //button.btn.btn-prmiary#draftButton(type="save") Save as Draft
+              - } else {
+                .generalFeedContainer
+
+                  div.blur
+                     img(src ='misc/GPBlur.png' width='100%' height='100%')
+                  #blurMessage
+                     h1 Please log in to write a post!
+                     br
+                     form#hubButton(action="/auth/facebooknoredirect", method='get')
+                        button.btn.btn-primary Login
+
+              - }
+
+      section.forumPost
+         div.individualPostHeader
+            span#backButton.glyphicon.glyphicon-chevron-left
+            span#sidebarHeader Detailed Post
+            span#closeIconContainer
+               span#closeSidebarIcon X
+
+         div.sidebarBackground
+         div.individualPostContainer
+            div#individualPostContent
+               br
+               .sidebarPostEventTitle
+               .sidebarPostOrganizationContainer
+                  span.hostedByOrganization Hosted by
+                  span.sidebarPostOrganization
+               br
+               .sidebarPostEventDetails
+                  div.eventTimeContainer
+                     span.eventPlaceholder When:
+                     span.eventDate
+                     div.eventTime
+                  div.eventLocationContainer
+                     span.eventPlaceholder Where:
+                     span.eventLocation
+               br
+               .sidebarPostEventDescription
+               br
+               .sidebarPostDetails
+                  span.profileContainer#sidebarAuthorPic
+                  div.postAuthor#sidebarAuthor
+                  span.separator -
+                  div.postDate
+                     div.timeData
+                     div.timeDescription
+                  span.separator#categorySeparator -
+                  span.postCategories#sidebarCategory
+               .commentInputContainer
+                  form(id="generalPost2" method='post').commentInputForm
+                     fieldset.form-group#commentInputContainer
+                        textarea.postContentInput.commentInput(name="content" form="generalPost2" placeholder="Write a comment..." required)
+
+                     fieldset.form-group#commentSubmitButton
+                        button.btn.btn-primary(type="submit" form="generalPost2") Submit
+
+               div#commentSectionContainer
+
+   footer
+      include ./../../partials/footer.pug

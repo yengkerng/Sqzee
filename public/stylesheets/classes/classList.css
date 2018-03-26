@@ -1,0 +1,387 @@
+@media only screen and (max-width: 650px) {
+   th.detailColumnHeader, td.detailColumn {
+      display: none;
+   }
+
+   div.table_container {
+      width: 100%;
+   }
+}
+
+body {
+   background-color: #FFFFFF;
+}
+
+section.titleContainer {
+   height: 115px;
+}
+
+.buttonWrapper {
+   padding-top: 5px;
+   padding-bottom: 15px;
+}
+
+.btn-secondary {
+   background-color: #FFFFFF;
+   border-width: 1px;
+   border-color: #F89932;
+   border-radius: 3px;
+}
+
+.btn-secondary:hover {
+   background-color: #d9d9d9;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+    background-color: #b2b2b2;
+}
+
+.btn-secondary:active {
+   background: #b2b2b2;
+   box-shadow: none;
+}
+
+#sortHeader {
+   color: #000000;
+   margin-right: 5px;
+}
+
+#container {
+   margin-top: 20px;
+   height: auto;
+   width: 100%;
+   background: #076382;
+   display: inline-block;
+
+}
+
+
+.container#body {
+   height: 100%;
+   width: 100%;
+   background: #FFFFFF;
+   position: absolute;
+}
+
+.img-circle {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+/*
+tr:nth-child(even) {
+   background: #b4d0d9;
+}*/
+
+tr:nth-child(odd) {
+   background: #white;
+}
+
+tr {
+   text-align: left;
+   padding-top: 10px;
+   padding-top: 10px;
+   border-bottom: 1px solid rgba(34,36,38,0.15);
+}
+/*
+td {
+   padding-top: 10px;
+}
+*/
+td:nth-child(even) {
+   width: 100%;
+}
+
+table {
+   width: 100%;
+   /*border-style: solid;*/
+}
+
+.titleContainer {
+   background-color: #FFFFFF;
+   height: 100px;
+   width: auto;
+}
+
+.classTitleContainer {
+   padding-top: 15px;
+   background-color: #FFFFFF;
+   /*height: 100px;*/
+   width: auto;
+   height: auto;
+}
+
+.title {
+   color: #F89932;
+   text-align: center;
+   font-weight: bold;
+   font-size: 28px;
+   padding-top: 35px;
+}
+
+.professor_depart {
+   font-weight: lighter;
+   color: #000000;
+}
+
+.professor_name {
+   font-weight: bolder;
+   color: #F89932;
+}
+
+.professor_name:hover {
+   color: #c76e32;
+}
+
+.headerText {
+   font-size: 2.5vw;
+   font-weight: bold;
+   text-align: center;
+   /*padding: 5px;*/
+   color: #00628B;
+   background-color: white;
+   padding-top: 1.8vh;
+   padding-bottom: 1.6vh;
+}
+
+.table_container {
+   height: auto;
+   border-radius: 5px;
+   width:60%;
+   position: relative;
+   margin: auto;
+   /*margin-top: 50px;
+   margin-left: auto;
+   margin-right: auto;*/
+}
+
+.table_style {
+   /*width: 100%;*/
+   /*border-style: solid;*/
+   border-collapse: collapse;
+}
+
+.grading_table td {
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+
+.grading_table img {
+   width: 30px;
+   height: 30px;
+   border-radius: 70%;
+}
+
+.columnHeaders {
+   margin-bottom: 20px;
+}
+
+.addingHeader {
+   padding: 20px 10px 10px;
+   width: 5%;
+}
+
+.addingColumn {
+   padding: 10px 10px;
+   width: 5%;
+   vertical-align: middle;
+
+}
+
+
+/*.addingColumn:hover {
+   background-color: #99FF99;
+}*/
+
+
+.searchHeader {
+   color: #F89932;
+   padding-left: 10px;
+   width: 72.5%;
+   text-align: left;
+   font-size: 25px;
+   padding-bottom: 10px;
+}
+
+.searchColumn {
+   padding-left: 10px;
+   width: 72.5%;
+}
+
+.detailColumnHeader {
+   color: #F89932;
+   padding-left: 10px;
+   text-align: center;
+   font-size: 25px;
+   white-space: nowrap;
+   width: 22.5%;
+}
+
+.detailColumn {
+   white-space: nowrap;
+   text-align: center;
+   width: 22.5%;
+   color: white;
+   padding-left: 0px;
+}
+
+.ratingColumn {
+   color: #F89932;
+   padding-left: 10px;
+   text-align: center;
+   white-space: nowrap;
+   font-size: 18px;
+   width: 22.5%;
+}
+
+.unitsHeader {
+   color: #F89932;
+   padding-left: 10px;
+   padding-right: 20px;
+   text-align: center;
+   font-size: 25px;
+   white-space: nowrap;
+   width: 22.5%;
+}
+
+.unitsColumn {
+   color: #F89932;
+   padding-left: 10px;
+   padding-right: 20px;
+   text-align: center;
+   font-size: 18px;
+   white-space: nowrap;
+   width: 22.5%;
+}
+
+.usersFriendsHeader {
+   color: #F89932;
+   white-space: nowrap;
+   text-align: left;
+   font-size: 18px;
+   width: 30%;
+}
+
+.usersFriendsColumn {
+   white-space: nowrap;
+   text-align: left;
+   width: 30%;
+   color: #F89932;
+   font-size: 14px;
+}
+
+/* START OF FACEBOOK FRIEND DROPDOWN */
+
+#friendsIcon {
+   color: #b2b2b2;
+   padding-right: 5px;
+}
+
+#andSpacer {
+   padding-left: 5px;
+   padding-right: 5px;
+   font-weight: lighter;
+}
+
+#friendsDropTitle {
+   text-align: center;
+   font-weight: bolder;
+   color: #4c4c4c;
+   padding-bottom: 5px;
+}
+
+.dropdown-menu:before {
+  position: absolute;
+  top: -7px;
+  left: 9px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-left: 7px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  content: '';
+}
+
+.dropdown-menu:after {
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
+}
+
+
+#moreFriendsButton {
+   height: auto;
+   width: auto;
+   font-size: 11px;
+   color: #e5e5e5;
+   padding: 0px;
+   padding-bottom: 0px;
+   margin: 0px;
+   white-space: nowrap;
+   background: none;
+   border: none;
+}
+
+.singleFacebookFriend {
+   padding-bottom: 5px;
+}
+
+.facebookPic {
+   border-radius: 50%;
+   width: 20px;
+   height: 20px;
+   display: inline;
+   margin-left: 5px;
+}
+
+#facebookFriendName {
+   display: inline;
+   padding-left: 5px;
+
+}
+
+.otherFriendsList {
+   position: relative;
+   display: inline-block;
+}
+
+.dropButton {
+   background-color: none;
+   border: none;
+   cursor: pointer;
+}
+
+.dropDownContent {
+   display: none;
+   position: relative;
+}
+
+.dropdown-content span {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.otherFriendsList:hover .dropDownContent {
+    display: block;
+}
+
+/* END OF FACEBOOK FRIEND DROP DOWN*/
+
+.noResultsColumn {
+   width: 100%;
+   text-align: center;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   color: #F89932;
+   font-weight: normal;
+   font-size: 25px;
+}
